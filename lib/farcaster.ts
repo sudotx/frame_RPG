@@ -3,24 +3,27 @@ import { createPublicClient, getContract, http } from "viem";
 import { optimism } from "viem/chains";
 import { getSSLHubRpcClient, Message } from "@farcaster/hub-nodejs";
 
+// update this to new app url
 export const FRAME_BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://privy-frames-demo.vercel.app";
+  process.env.NEXT_PUBLIC_BASE_URL || "https://untitled-unmastered.vercel.app";
 const ID_REGISTRY_CONTRACT_ADDRESS: `0x${string}` =
   "0x00000000fc6c5f01fc30151999387bb99a9f489b"; // Optimism Mainnet
 const ZERO_ADDRESS: `0x${string}` =
   "0x0000000000000000000000000000000000000000";
 const HUB_URL = "nemes.farcaster.xyz:2283";
 
+//! update these
 export enum FrameImageUrls {
-  START = "https://privy-frames-demo.vercel.app/landing.png",
-  WALLET = "https://privy-frames-demo.vercel.app/wallet.png",
-  SUCCESS = "https://privy-frames-demo.vercel.app/success.png",
-  ERROR = "https://privy-frames-demo.vercel.app/error.png",
+  START = "https://untitled-unmastered.vercel.app/landing.png",
+  WALLET = "https://untitled-unmastered.vercel.app/wallet.png",
+  SUCCESS = "https://untitled-unmastered.vercel.app/success.png",
+  ERROR = "https://untitled-unmastered.vercel.app/error.png",
 }
 
 export const createFrame = (
   imageUrl: string,
   buttonText: string,
+  buttonText2: string,
   apiPath: string,
   isRedirect = false
 ) => {
@@ -41,6 +44,7 @@ export const createWalletFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.WALLET,
     "Mint your NFT",
+    "Mint your NFT2",
     `api/mint/${address}`
   );
 };
@@ -48,12 +52,14 @@ export const createWalletFrame = (address: string) => {
 export const successFrame = createFrame(
   FrameImageUrls.SUCCESS,
   "Done",
+  "Done2",
   "api/done",
   true
 );
 export const errorFrame = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
+  "Try again?2",
   "api/wallet"
 );
 
@@ -79,6 +85,7 @@ export const parseFrameRequest = async (request: FrameRequest) => {
   return { fid: fid, isValid: isValid };
 };
 
+// get owner address
 export const getOwnerAddressFromFid = async (fid: number) => {
   let ownerAddress: `0x${string}` | undefined;
   try {

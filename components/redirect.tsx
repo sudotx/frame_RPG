@@ -1,13 +1,13 @@
 'use client';
-import {useRouter} from 'next/navigation';
-import {useEffect} from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
-const PRIVY_AUTH_DEMO_URL = 'https://demo.privy.io';
+const OPENFORT_URL = 'https://www.openfort.xyz/';
 
 export default function RedirectToDemo() {
     const router = useRouter();
     useEffect(() => {
-        router.push(PRIVY_AUTH_DEMO_URL);
+        router.push(OPENFORT_URL);
     })
     return <></>
 }
