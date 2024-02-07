@@ -1,9 +1,8 @@
 import { FrameRequest } from "@coinbase/onchainkit";
+import { Message, getSSLHubRpcClient } from "@farcaster/hub-nodejs";
 import { createPublicClient, getContract, http } from "viem";
-import { optimism } from "viem/chains";
-import { getSSLHubRpcClient, Message } from "@farcaster/hub-nodejs";
+import { optimism, goerli } from "viem/chains";
 
-// update this to new app url
 export const FRAME_BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || "https://untitled-unmastered.vercel.app";
 const ID_REGISTRY_CONTRACT_ADDRESS: `0x${string}` =
@@ -12,7 +11,6 @@ const ZERO_ADDRESS: `0x${string}` =
   "0x0000000000000000000000000000000000000000";
 const HUB_URL = "nemes.farcaster.xyz:2283";
 
-//! update these
 export enum FrameImageUrls {
   START = "https://untitled-unmastered.vercel.app/landing.png",
   WALLET = "https://untitled-unmastered.vercel.app/wallet.png",
@@ -63,19 +61,19 @@ export const errorFrame = createFrame(
   "Try again?2",
   "api/wallet"
 );
-export const errorFrame2 = createFrame(
+export const Frame2 = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
   "Try again?2",
   "api/wallet"
 );
-export const errorFrame3 = createFrame(
+export const Frame3 = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
   "Try again?2",
   "api/wallet"
 );
-export const errorFrame4 = createFrame(
+export const Frame4 = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
   "Try again?2",

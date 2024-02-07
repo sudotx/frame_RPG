@@ -1,78 +1,126 @@
 import axios, { AxiosRequestConfig } from "axios";
-// create an embed wallet using open fort
-import {
-  CreateAccountRequest,
-  PlayerMetadataValue,
-} from "@openfort/openfort-node";
-import { NextResponse } from "next/server";
+import Openfort from "@openfort/openfort-node";
 
-const PRIVY_APP_ID = process.env.PRIVY_APP_ID;
-const PRIVY_APP_SECRET = process.env.PRIVY_APP_SECRET;
-const PRIVY_API_URL =
-  process.env.PRIVY_API_URL || "https://auth.privy.io/api/v1";
+const OPENFORT_APP_ID = process.env.OPENFORT_APP_ID;
+const OPENFORT_APP_SECRET = process.env.OPENFORT_APP_SECRET;
+const OPENFORT_API_URL =
+  process.env.OPENFORT_APP_URL || "https://api.openfort.xyz/v1/";
 
 const config: AxiosRequestConfig = {
   headers: {
-    "privy-app-id": PRIVY_APP_ID,
-    Authorization: `Basic ${btoa(`${PRIVY_APP_ID}:${PRIVY_APP_SECRET}`)}`,
+    "OPENFORT-app-id": OPENFORT_APP_ID,
+    Authorization: `Basic ${btoa(`${OPENFORT_APP_ID}:${OPENFORT_APP_SECRET}`)}`,
   },
 };
+const openfort = new Openfort(OPENFORT_APP_SECRET + "");
 
 // PERFORM FOLLOWING USING OPENFORT //
 
-// create a player id for a player
-export const createPlayer = async () =>
-  // email
-  // password(deterministic from the FID)
-  // address of user
-  {
-    // create a new player instance
-  };
+export const createPlayer = async (name: string) => {
+  // create a new player instance
+  try {
+    const resp = await openfort.players.create({
+      name: name,
+    });
+    return resp;
+  } catch (error) {
+    console.error(error);
+    return undefined;
+  }
+};
 
-// signup a player
-export const signUp = async () => {};
+export const createAccountObject = async (chainId: number) => {
+  // create a new player instance
+  try {
+    const response = await openfort.accounts.create({ chainId: chainId });
+    return response;
+  } catch (error) {
+    console.error(error);
+    return undefined;
+  }
+};
+
+export const retreiveDetailsOnExistingPlayer = async (id: string) => {
+  const resp = await openfort.players.get({
+    id: id,
+  });
+  return resp;
+};
 
 // log a player in
-export const logIn = async () => {};
-
-// retrieve key for an authenticated pplayer
-export const retrieveKey = async () => {};
-
-// authorize player with a token
-export const authorizePlayer = async () => {};
+export const logIn = async (email: string, password: string) => {
+  // email and password should be determininistic
+};
 
 // retreive a player with its token
-export const retrievePlayer = async () => {};
-
-// create an account object
-export const createAccountObject = async () => {};
-
-// get an existing account based on fid, address
-export const getExistingAccount = async () => {};
-
-// get nft list of player
-export const getNFTlist = async () => {};
-
-// retreive nft assets of an account
-export const retrieveNFTAssets = async () => {};
-
-// retreive assets of an account
-export const getPlayerDetails = async () => {};
-
-// retrieve details of existing player
-export const getPlayerAssetDetails = async () => {};
-
-// updates a player object
-export const updatePlayer = async () => {};
+export const retrievePlayer = async (id: string) => {
+  const response = await openfort.accounts.get({
+    id: id,
+  });
+  return response;
+};
 
 // create a session key
-export const createSessionKey = async () => {};
+export const createSessionKey = async (
+  address: string,
+  chainId: number,
+  after: number,
+  until: number,
+  player: string
+) => {
+  const resp = await openfort.sessions.create({
+    address: address,
+    chainId: chainId,
+    validAfter: after,
+    validUntil: until,
+    player: player,
+  });
+  return resp.id;
+};
+
+export const getPlayerNFTs = async (id: string, chainId: number) => {
+  const resp = await openfort.inventories.getPlayerNftInventory({
+    playerId: id,
+    chainId: chainId,
+  });
+
+  return resp;
+};
+
+export const getAContract = async (id: string) => {
+  const resp = await openfort.contracts.get({
+    id: id,
+  });
+
+  return resp;
+};
+export const list10PLayers = async () => {
+  const resp = await openfort.players.list();
+
+  return resp;
+};
+
+export const createContractObject = async (
+  name: string,
+  chainId: number,
+  address: string
+) => {
+  const response = await openfort.contracts.create({
+    name: name,
+    chainId: chainId,
+    address: address,
+  });
+  return response;
+};
 
 // list session key of a player
-export const listSessionKey = async () => {};
+export const returnsSessionFromSessionID = async (id: string) => {
+  const resp = await openfort.sessions.get({
+    id: id,
+  });
 
-// create web3 conncetion object
-export const createWeb3Conncetion = async () => {};
+  return resp;
+};
 
 export const createOrFindEmbeddedWalletForFid = async (
   fid: number,
@@ -120,7 +168,7 @@ const createEmbeddedWalletForFid = async (
 
   try {
     const response = await axios.post(
-      `${PRIVY_API_URL}/users`,
+      `${OPENFORT_API_URL}/users`,
       proposedUser,
       config
     );
@@ -139,7 +187,10 @@ const createEmbeddedWalletForFid = async (
 
 export const findExistingEmbeddedWalletForDid = async (did: string) => {
   try {
-    const response = await axios.get(`${PRIVY_API_URL}/users/${did}`, config);
+    const response = await axios.get(
+      `${OPENFORT_API_URL}/users/${did}`,
+      config
+    );
     const linkedAccounts = response.data.linked_accounts;
     const embeddedWallet = linkedAccounts.find(
       (account: any) => account.type === "wallet"
@@ -157,7 +208,7 @@ const deleteAndCreateUserWithEmbeddedWallet = async (
   ownerAddress: string
 ) => {
   try {
-    await axios.delete(`${PRIVY_API_URL}/users/${did}`, config);
+    await axios.delete(`${OPENFORT_API_URL}/users/${did}`, config);
   } catch (error) {
     // Unable to delete user
     return undefined;

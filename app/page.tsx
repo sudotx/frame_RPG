@@ -6,8 +6,8 @@ import RedirectToDemo from '@/components/redirect';
 const frameMetadata = getFrameMetadata({
   // change this to create a player
   // then this creates a player for the current connected user and performs an action
-  buttons: ['Create a wallet', 'create another wallet'],
   image: FrameImageUrls.START,
+  buttons: ['Create a wallet', 'create another wallet'],
   post_url: `${FRAME_BASE_URL}/api/wallet`,
 });
 

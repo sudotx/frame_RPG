@@ -28,6 +28,7 @@ export const airdropTo = async (recipient: `0x${string}`) => {
     });
     const account = mnemonicToAccount(NFT_WALLET_MNEMONIC);
     const tx = await client.sendTransaction({
+      // change this to the farcaster current account, from the fid
       account: account,
       to: NFT_CONTRACT_ADDRESS,
       data: encodeFunctionData({
