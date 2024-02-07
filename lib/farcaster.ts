@@ -35,6 +35,7 @@ export const createFrame = (
             <meta name="fc:frame:image" content="${imageUrl}">
             <meta name="fc:frame:post_url" content="${FRAME_BASE_URL}/${apiPath}">
             <meta name="fc:frame:button:1" content="${buttonText}">
+            <meta name="fc:frame:button:1" content="${buttonText2}">
             <meta name="fc:frame:button:1:action" content="${isRedirect ? "post_redirect" : "post"}">
             </head>
         </html>`;
@@ -57,6 +58,24 @@ export const successFrame = createFrame(
   true
 );
 export const errorFrame = createFrame(
+  FrameImageUrls.ERROR,
+  "Try again?",
+  "Try again?2",
+  "api/wallet"
+);
+export const errorFrame2 = createFrame(
+  FrameImageUrls.ERROR,
+  "Try again?",
+  "Try again?2",
+  "api/wallet"
+);
+export const errorFrame3 = createFrame(
+  FrameImageUrls.ERROR,
+  "Try again?",
+  "Try again?2",
+  "api/wallet"
+);
+export const errorFrame4 = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
   "Try again?2",

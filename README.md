@@ -1,6 +1,6 @@
-# Privy x Frames Demo
+# Openfort x Frames Demo
 
-This is an example [**Frame**](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5) to demonstrate how you can use [**Frames**](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5) alongside Privy's [**Farcaster login**](https://docs.privy.io/guide/guides/farcaster-login) feature to create novel, cross-app experiences for your users.
+This is an example [**Frame**](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5) to demonstrate how you can use [**Frames**](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5) alongside Openfort's [**Farcaster login**](https://docs.privy.io/guide/guides/farcaster-login) feature to create novel, cross-app experiences for your users.
 
 When a user first sees this demo Frame in their Farcaster client, they can click a button to redeem a testnet NFT. Behind the scenes, Privy creates an embedded wallet associater with the current Farcaster user and airdrops an NFT to it. Users can view their NFT by signing in with their Farcaster account to the [**Privy Demo**](https://demo.privy.io). This is a **testnet NFT** on the Optimism Sepolia testnet.
 
@@ -26,14 +26,14 @@ npm i
 
 3. Using a fresh development wallet, deploy an ERC-721 contract at to the Optimism Sepolia testnet. **Do not use a real wallet, as you must store the development wallet's seed phrase as an environment secret.** You can use a tool like [Remix](https://remix.ethereum.org/) or [`hardhat`](https://www.npmjs.com/package/hardhat) to deploy your contract.
 
-4. Initialize your environment variables by copying the contents of `.env.example.local` to a new `.env.local` file, and fill in the required values. You'll need to set a base URL, your NFT contract address, the seed phrase for your development wallet, and your Privy app ID and secret.
+4. Initialize your environment variables by copying the contents of `.env.example.local` to a new `.env.local` file, and fill in the required values. You'll need to set a base URL, your NFT contract address, the seed phrase for your development wallet, and your Openfort app ID and secret.
 
 ```sh
 NEXT_PUBLIC_BASE_URL=<insert-the-url-for-your-frame>
 NFT_CONTRACT_ADDRESS=<insert-the-nft-address>
 NFT_WALLET_MNEMONIC=<insert-the-seed-phrase-for-your-dev-wallet>
-PRIVY_APP_ID=<insert-your-privy-app-id>
-PRIVY_APP_SECRET=<insert-your-privy-app-secret>
+Openfort_APP_ID=<insert-your-Openfort-app-id>
+Openfort_APP_SECRET=<insert-your-Openfort-app-secret>
 ```
 
 **That's it!** To run the demo locally, execute `npm run dev` and open [http://localhost:3000](http://localhost:3000).
@@ -44,7 +44,7 @@ You can test this Frame using [Warpcast Embed Tools](https://warpcast.com/~/deve
 
 ## Check out
 
-- `lib/embedded-wallet.ts` to see how to use Privy to pre-generate embedded wallets for a user's Farcaster accounts
+- `lib/embedded-wallet.ts` to see how to use Openfort to pre-generate embedded wallets for a user's Farcaster accounts
 - `lib/farcaster.ts` to see how Frames are generated and how to verify a user's Farcaster account and query the protocol for their Farcaster data
 - `lib/nft.ts` to see how to airdrop the ERC-721 you deployed to a user's wallet address
 - `api/wallet/route.ts` to see how the first Frame interaction generates an embedded wallet for the user
