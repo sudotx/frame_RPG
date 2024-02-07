@@ -14,8 +14,6 @@ const config: AxiosRequestConfig = {
 };
 const openfort = new Openfort(OPENFORT_APP_SECRET + "");
 
-// PERFORM FOLLOWING USING OPENFORT //
-
 export const createPlayer = async (name: string) => {
   // create a new player instance
   try {
