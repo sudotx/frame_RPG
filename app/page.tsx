@@ -1,22 +1,20 @@
+import RedirectToDemo from '@/components/redirect';
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
-import { FrameImageUrls, FRAME_BASE_URL } from '../lib/farcaster';
-import RedirectToDemo from '@/components/redirect';
+import { FRAME_BASE_URL, FrameImageUrls } from '../lib/farcaster';
 
 const frameMetadata = getFrameMetadata({
-  // change this to create a player
-  // then this creates a player for the current connected user and performs an action
   image: FrameImageUrls.START,
   buttons: ['Create a player', 'Player Login'],
   post_url: `${FRAME_BASE_URL}/api/wallet`,
 });
 
 export const metadata: Metadata = {
-  title: 'Openfort Frames',
-  description: 'Openfort Frames',
+  title: 'Untitled Unmastered',
+  description: 'Game In A Frame',
   openGraph: {
-    title: 'Openfort Frames',
-    description: 'Openfort Frames',
+    title: 'Untitled Unmastered Game',
+    description: 'A Game in frame built using OpenFort API',
     images: [FrameImageUrls.START],
   },
   other: {
@@ -28,7 +26,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>Openfort Frames</h1>
+      <h1>Untitled Unmastered</h1>
       <RedirectToDemo />
     </>);
 }

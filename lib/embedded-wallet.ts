@@ -1,5 +1,5 @@
-import axios, { AxiosRequestConfig } from "axios";
 import Openfort from "@openfort/openfort-node";
+import axios, { AxiosRequestConfig } from "axios";
 
 const OPENFORT_APP_ID = process.env.OPENFORT_APP_ID;
 const OPENFORT_APP_SECRET = process.env.OPENFORT_APP_SECRET;

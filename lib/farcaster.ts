@@ -1,7 +1,7 @@
 import { FrameRequest } from "@coinbase/onchainkit";
 import { Message, getSSLHubRpcClient } from "@farcaster/hub-nodejs";
 import { createPublicClient, getContract, http } from "viem";
-import { optimism, goerli } from "viem/chains";
+import { optimism } from "viem/chains";
 
 export const FRAME_BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || "https://untitled-unmastered.vercel.app";
@@ -21,9 +21,9 @@ export enum FrameImageUrls {
 export const createFrame = (
   imageUrl: string,
   buttonText: string,
-  buttonText2: string,
   apiPath: string,
-  isRedirect = false
+  isRedirect = false,
+  buttonText2?: string
 ) => {
   return `
         <!DOCTYPE html>
@@ -43,41 +43,56 @@ export const createWalletFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.WALLET,
     "Mint your NFT",
-    "Mint your NFT2",
-    `api/mint/${address}`
+    `api/mint/${address}`,
+    true,
+    "Mint your NFT2"
   );
 };
 
 export const successFrame = createFrame(
   FrameImageUrls.SUCCESS,
   "Done",
-  "Done2",
   "api/done",
-  true
+  false,
+  "Done2"
 );
 export const errorFrame = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
-  "Try again?2",
-  "api/wallet"
+  "api/wallet",
+  true,
+  "Try again?2"
 );
-export const Frame2 = createFrame(
+
+export const WaitingForOpponent = createFrame(
+  FrameImageUrls.ERROR,
+  "Waiting For Opponent",
+  "api/wallet",
+  false
+);
+export const ShowWin = createFrame(
+  FrameImageUrls.ERROR,
+  "Congratulations anon",
+  "api/wallet",
+  false
+);
+export const ShowLose = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
-  "Try again?2",
-  "api/wallet"
+  "api/wallet",
+  false
 );
-export const Frame3 = createFrame(
+export const Hosting = createFrame(
   FrameImageUrls.ERROR,
-  "Try again?",
-  "Try again?2",
-  "api/wallet"
+  "Hosting!",
+  "api/wallet",
+  false
 );
-export const Frame4 = createFrame(
+export const Dueling = createFrame(
   FrameImageUrls.ERROR,
-  "Try again?",
-  "Try again?2",
-  "api/wallet"
+  "Dueling",
+  "api/wallet",
+  false
 );
 
 export const parseFrameRequest = async (request: FrameRequest) => {

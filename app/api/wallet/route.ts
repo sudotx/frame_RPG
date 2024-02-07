@@ -1,13 +1,12 @@
+import { createOrFindEmbeddedWalletForFid } from "@/lib/embedded-wallet";
 import {
-  errorFrame,
-  parseFrameRequest,
-  getOwnerAddressFromFid,
-  successFrame,
   createWalletFrame,
+  errorFrame,
+  getOwnerAddressFromFid,
+  parseFrameRequest,
 } from "@/lib/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
-import { createOrFindEmbeddedWalletForFid } from "@/lib/embedded-wallet";
 
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
