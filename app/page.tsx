@@ -7,7 +7,7 @@ const frameMetadata = getFrameMetadata({
   // change this to create a player
   // then this creates a player for the current connected user and performs an action
   image: FrameImageUrls.START,
-  buttons: ['Create a wallet', 'create another wallet', 'a third', 'a fourth'],
+  buttons: ['Create a player', 'Player Login'],
   post_url: `${FRAME_BASE_URL}/api/wallet`,
 });
 
