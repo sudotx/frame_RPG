@@ -13,10 +13,23 @@ const HUB_URL = "nemes.farcaster.xyz:2283";
 
 export enum FrameImageUrls {
   START = "https://untitled-unmastered.vercel.app/landing.png",
-  WALLET = "https://untitled-unmastered.vercel.app/wallet.png",
   SUCCESS = "https://untitled-unmastered.vercel.app/success.png",
+  WALLET = "https://untitled-unmastered.vercel.app/wallet.png",
   ERROR = "https://untitled-unmastered.vercel.app/error.png",
+  MINT = "https://untitled-unmastered.vercel.app/error.png",
+  HOST_DUEL = "https://untitled-unmastered.vercel.app/error.png",
+  DUEL = "https://untitled-unmastered.vercel.app/error.png",
+  SHOW_LOSE = "https://untitled-unmastered.vercel.app/error.png",
+  SHOW_WIN = "https://untitled-unmastered.vercel.app/error.png",
+  WAIT_FOR_OPPONENT = "https://untitled-unmastered.vercel.app/error.png",
 }
+
+// 1. create player, login
+// 2. mint character token
+// 3. host duel, or join existing duel
+// 4. duel frame, show fighter and fightee gravicons
+// NB: use memes to make an nft collection, or use SVG
+//
 
 export const createFrame = (
   imageUrl: string,

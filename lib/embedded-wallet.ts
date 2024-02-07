@@ -47,11 +47,6 @@ export const retreiveDetailsOnExistingPlayer = async (id: string) => {
   return resp;
 };
 
-// log a player in
-export const logIn = async (email: string, password: string) => {
-  // email and password should be determininistic
-};
-
 // retreive a player with its token
 export const retrievePlayer = async (id: string) => {
   const response = await openfort.accounts.get({

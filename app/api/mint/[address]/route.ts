@@ -1,13 +1,7 @@
-import {
-  errorFrame,
-  parseFrameRequest,
-  getOwnerAddressFromFid,
-  successFrame,
-} from "@/lib/farcaster";
+import { errorFrame, parseFrameRequest, successFrame } from "@/lib/farcaster";
+import { airdropTo } from "@/lib/nft";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
-import { airdropTo } from "@/lib/nft";
-import { createOrFindEmbeddedWalletForFid } from "@/lib/embedded-wallet";
 
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
