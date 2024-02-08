@@ -8,7 +8,7 @@ const OPENFORT_API_URL =
 
 const config: AxiosRequestConfig = {
   headers: {
-    "OPENFORT-app-id": OPENFORT_APP_ID,
+    "openfort-app-id": OPENFORT_APP_ID,
     Authorization: `Basic ${btoa(`${OPENFORT_APP_ID}:${OPENFORT_APP_SECRET}`)}`,
   },
 };
