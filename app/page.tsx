@@ -5,7 +5,7 @@ import { FRAME_BASE_URL, FrameImageUrls } from '../lib/farcaster';
 
 const frameMetadata = getFrameMetadata({
   image: FrameImageUrls.START,
-  buttons: ['Create a player'],
+  buttons: ['Create a player', 'Login'],
   post_url: `${FRAME_BASE_URL}/api/wallet`,
 });
 
