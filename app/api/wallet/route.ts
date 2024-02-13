@@ -1,4 +1,4 @@
-import { createOrFindEmbeddedWalletForFid } from "@/lib/embedded-wallet";
+import { createOrFindSmartWalletForFid } from "@/lib/embedded-wallet";
 import {
   createWalletFrame,
   errorFrame,
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (!ownerAddress) return new NextResponse(errorFrame);
 
   // Generate an embedded wallet associated with the fid
-  const embeddedWalletAddress = await createOrFindEmbeddedWalletForFid(
+  const embeddedWalletAddress = await createOrFindSmartWalletForFid(
     fid,
     ownerAddress
   );

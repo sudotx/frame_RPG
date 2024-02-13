@@ -12,17 +12,21 @@ const ZERO_ADDRESS: `0x${string}` =
 const HUB_URL = "nemes.farcaster.xyz:2283";
 
 export enum FrameImageUrls {
-  START = "https://untitled-unmastered.vercel.app/landing.png",
   SUCCESS = "https://untitled-unmastered.vercel.app/success.png",
   WALLET = "https://untitled-unmastered.vercel.app/wallet.png",
-  ERROR = "https://untitled-unmastered.vercel.app/error.png",
-  MINT = "https://untitled-unmastered.vercel.app/error.png",
-  HOST_DUEL = "https://untitled-unmastered.vercel.app/hosting.png",
-  DUEL = "https://untitled-unmastered.vercel.app/dueling.png",
-  LOADING = "https://untitled-unmastered.vercel.app/loading.png",
-  LANDING = "https://untitled-unmastered.vercel.app/landing.png",
-  SHOW_WIN = "https://untitled-unmastered.vercel.app/showwin.png",
-  WAIT_FOR_OPPONENT = "https://untitled-unmastered.vercel.app/error.png",
+  LOADING = "https://untitled-unmastered.vercel.app/dragonburnsknight.jpg",
+  DRAGON_SPITS_FIRBALL_AT_KNIGHT = "https://untitled-unmastered.vercel.app/dragonbreathefire.jpg",
+  FRIENDLY_WITH_DRAGON = "https://untitled-unmastered.vercel.app/dragonandknightfrends.jpg",
+  MINT_PAGE_WITH_BLACKSMITH = "https://untitled-unmastered.vercel.app/blacksmith.jpg",
+  START = "https://untitled-unmastered.vercel.app/dragonfaceoff.jpg",
+  FACE_OFF = "https://untitled-unmastered.vercel.app/dragonfaceoff2.jpg",
+  DRAGON_WINS = "https://untitled-unmastered.vercel.app/dragonburnsknight.jpg",
+  DRAGON_SOARING_FREE = "https://untitled-unmastered.vercel.app/dragonwin.jpg",
+  KNIGHT_HORSE_BACK = "https://untitled-unmastered.vercel.app/horseback.jpg",
+  KNIGHTS_GUILD = "https://untitled-unmastered.vercel.app/knightguild.jpg",
+  KNIGHT_WIN = "https://untitled-unmastered.vercel.app/knightwin.jpg",
+  RECRUIT = "https://untitled-unmastered.vercel.app/recruitingknights.jpg",
+  ERROR = "https://untitled-unmastered.vercel.app/showlose.png",
 }
 
 // 1. create player, login
@@ -30,7 +34,6 @@ export enum FrameImageUrls {
 // 3. host duel, or join existing duel
 // 4. duel frame, show fighter and fightee gravicons
 // NB: use memes to make an nft collection, or use SVG
-//
 
 export const createFrame = (
   imageUrl: string,

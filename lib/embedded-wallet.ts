@@ -1,4 +1,5 @@
 import Openfort from "@openfort/openfort-node";
+import { baseSepolia } from "viem/chains";
 
 const OPENFORT_APP_SECRET = process.env.OPENFORT_APP_SECRET;
 
@@ -13,6 +14,7 @@ export const createContractObject = async (
     name: name,
     chainId: chainId,
     address: address,
+    abi: [],
   });
   return response;
 };
@@ -34,11 +36,11 @@ const createSmartWalletForFid = async (fid: string, ownerAddress: string) => {
   try {
     const player = await openfort.players.create({
       name: fid,
-      description: "Smart Wallet",
+      description: "Knight smart wallet",
     });
     const account = await openfort.accounts.create({
       player: player.id,
-      chainId: 84532,
+      chainId: baseSepolia.id,
       externalOwnerAddress: ownerAddress,
     });
 
@@ -59,7 +61,7 @@ export const findExistingSmartWalletForFid = async (fid: string) => {
     if (!response || response.data.length === 0) return undefined;
     const accounts = response.data[0].accounts;
     const smartWallet = accounts?.find(
-      (account: any) => account.chainId === 84532
+      (account: any) => account.chainId === baseSepolia.id
     );
     return smartWallet ? smartWallet.address : undefined;
   } catch (error) {

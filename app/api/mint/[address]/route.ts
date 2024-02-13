@@ -1,5 +1,4 @@
 import { errorFrame, parseFrameRequest, successFrame } from "@/lib/farcaster";
-import { airdropTo } from "@/lib/nft";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -21,8 +20,8 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (typeof address !== "string") return new NextResponse(errorFrame);
 
   // Send NFT to the user's wallet
-  const tx = await airdropTo(address as `0x${string}`);
-  if (!tx) return new NextResponse(errorFrame);
+  // const tx = await airdropTo(address as `0x${string}`);
+  // if (!tx) return new NextResponse(errorFrame);
 
   return new NextResponse(successFrame);
 }
