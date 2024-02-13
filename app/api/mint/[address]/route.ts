@@ -20,7 +20,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   const address = req.url.split("/").slice(-1)[0];
   if (typeof address !== "string") return new NextResponse(errorFrame);
 
-  // Airdrop NFT to the user's wallet
+  // Send NFT to the user's wallet
   const tx = await airdropTo(address as `0x${string}`);
   if (!tx) return new NextResponse(errorFrame);
 

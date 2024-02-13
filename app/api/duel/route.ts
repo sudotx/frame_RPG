@@ -1,12 +1,5 @@
 import { FRAME_BASE_URL } from "@/lib/farcaster";
 import { NextRequest, NextResponse } from "next/server";
-import {
-  createAccountObject,
-  createContractObject,
-  createSessionKey,
-  list10PLayers,
-} from "@/lib/embedded-wallet";
-import { FrameRequest } from "@coinbase/onchainkit";
 
 export async function POST(req: NextRequest): Promise<Response> {
   return NextResponse.redirect(FRAME_BASE_URL, { status: 302 });

@@ -10,10 +10,10 @@ const frameMetadata = getFrameMetadata({
 });
 
 export const metadata: Metadata = {
-  title: 'Untitled Unmastered',
-  description: 'Game In A Frame',
+  title: 'Fire and Fortune',
+  description: 'Brave adventurers face off against a mighty dragon in its treacherous lair. Choose your actions wisely as you navigate through perilous encounters',
   openGraph: {
-    title: 'Untitled Unmastered Game',
+    title: 'Fire and Fortune',
     description: 'A Game in frame built using OpenFort API',
     images: [FrameImageUrls.START],
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>Untitled Unmastered</h1>
+      <h1>Fire and Fortune</h1>
       <RedirectToDemo />
     </>);
 }

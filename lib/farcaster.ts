@@ -17,10 +17,11 @@ export enum FrameImageUrls {
   WALLET = "https://untitled-unmastered.vercel.app/wallet.png",
   ERROR = "https://untitled-unmastered.vercel.app/error.png",
   MINT = "https://untitled-unmastered.vercel.app/error.png",
-  HOST_DUEL = "https://untitled-unmastered.vercel.app/error.png",
-  DUEL = "https://untitled-unmastered.vercel.app/error.png",
-  SHOW_LOSE = "https://untitled-unmastered.vercel.app/error.png",
-  SHOW_WIN = "https://untitled-unmastered.vercel.app/error.png",
+  HOST_DUEL = "https://untitled-unmastered.vercel.app/hosting.png",
+  DUEL = "https://untitled-unmastered.vercel.app/dueling.png",
+  LOADING = "https://untitled-unmastered.vercel.app/loading.png",
+  LANDING = "https://untitled-unmastered.vercel.app/landing.png",
+  SHOW_WIN = "https://untitled-unmastered.vercel.app/showwin.png",
   WAIT_FOR_OPPONENT = "https://untitled-unmastered.vercel.app/error.png",
 }
 
@@ -57,11 +58,26 @@ export const createWalletFrame = (address: string) => {
     FrameImageUrls.WALLET,
     "Mint your NFT",
     `api/mint/${address}`,
-    true,
-    "Mint your NFT2"
+    true
   );
 };
 
+// after this show a loading frame
+export const duelDragonFrame = (address: string) => {
+  return createFrame(
+    FrameImageUrls.WALLET,
+    "Prepare to fight the dragon",
+    `api/mint/${address}`,
+    true
+  );
+};
+
+export const loadingFrame = createFrame(
+  FrameImageUrls.SUCCESS,
+  "Loading",
+  "",
+  false
+);
 export const successFrame = createFrame(
   FrameImageUrls.SUCCESS,
   "Done",
@@ -89,6 +105,7 @@ export const ShowWin = createFrame(
   "api/wallet",
   false
 );
+
 export const ShowLose = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
@@ -98,15 +115,24 @@ export const ShowLose = createFrame(
 export const Hosting = createFrame(
   FrameImageUrls.ERROR,
   "Hosting!",
-  "api/wallet",
+  "api/host",
   false
 );
 export const Dueling = createFrame(
   FrameImageUrls.ERROR,
-  "Dueling",
+  "",
   "api/wallet",
   false
 );
+
+export const DuelingFrame = (address: string) => {
+  return createFrame(
+    FrameImageUrls.WALLET,
+    "Dueling",
+    `api/mint/${address}`,
+    true
+  );
+};
 
 export const parseFrameRequest = async (request: FrameRequest) => {
   const hub = getSSLHubRpcClient(HUB_URL);
