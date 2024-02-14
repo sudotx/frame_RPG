@@ -58,83 +58,91 @@ export const createFrame = (
 
 export const createWalletFrame = (address: string) => {
   return createFrame(
-    FrameImageUrls.WALLET,
-    "Mint your NFT",
-    `api/mint/${address}`,
-    true
+    FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
+    "Mint your Weapon",
+    `api/mint/${address}`
   );
 };
 
 // after this show a loading frame
 export const duelDragonFrame = (address: string) => {
   return createFrame(
-    FrameImageUrls.WALLET,
+    FrameImageUrls.FACE_OFF,
     "Prepare to fight the dragon",
-    `api/mint/${address}`,
-    true
+    `api/mint/${address}`
   );
 };
 
-export const loadingFrame = createFrame(
-  FrameImageUrls.SUCCESS,
+export const startFrame = createFrame(
+  FrameImageUrls.START,
   "Loading",
-  "",
-  false
+  `api/recruit`
+);
+export const dragonSpitsFireball = createFrame(
+  FrameImageUrls.DRAGON_SPITS_FIRBALL_AT_KNIGHT,
+  "Loading",
+  `api/dragon_wins`
+);
+export const dragonWins = createFrame(
+  FrameImageUrls.DRAGON_WINS,
+  "Loading",
+  `api/loading`
+);
+export const recruitFrame = createFrame(
+  FrameImageUrls.RECRUIT,
+  "Loading",
+  `api/loading`
+);
+export const FaceOff = createFrame(
+  FrameImageUrls.FACE_OFF,
+  "Loading",
+  `api/loading`
+);
+export const knightsWin = createFrame(
+  FrameImageUrls.KNIGHT_WIN,
+  "Loading",
+  `api/loading`
+);
+export const knightsGuild = createFrame(
+  FrameImageUrls.KNIGHTS_GUILD,
+  "Loading",
+  `api/loading`
+);
+export const knightsHorseBackFrame = createFrame(
+  FrameImageUrls.KNIGHT_HORSE_BACK,
+  "Loading",
+  `api/loading`
+);
+export const loadingFrame = createFrame(
+  FrameImageUrls.LOADING,
+  "Loading",
+  `api/loading`
 );
 export const successFrame = createFrame(
   FrameImageUrls.SUCCESS,
   "Done",
-  "api/done",
-  false,
-  "Done2"
+  "api/done"
 );
 export const errorFrame = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
-  "api/wallet",
-  true,
-  "Try again?2"
+  "api/wallet"
 );
 
-export const WaitingForOpponent = createFrame(
-  FrameImageUrls.ERROR,
-  "Waiting For Opponent",
-  "api/wallet",
-  false
-);
 export const ShowWin = createFrame(
-  FrameImageUrls.ERROR,
+  FrameImageUrls.KNIGHT_WIN,
   "Congratulations anon",
-  "api/wallet",
-  false
+  "api/wallet"
 );
 
 export const ShowLose = createFrame(
-  FrameImageUrls.ERROR,
+  FrameImageUrls.DRAGON_WINS,
   "Try again?",
-  "api/wallet",
-  false
-);
-export const Hosting = createFrame(
-  FrameImageUrls.ERROR,
-  "Hosting!",
-  "api/host",
-  false
-);
-export const Dueling = createFrame(
-  FrameImageUrls.ERROR,
-  "",
-  "api/wallet",
-  false
+  "api/wallet"
 );
 
 export const DuelingFrame = (address: string) => {
-  return createFrame(
-    FrameImageUrls.WALLET,
-    "Dueling",
-    `api/mint/${address}`,
-    true
-  );
+  return createFrame(FrameImageUrls.FACE_OFF, "Dueling", `api/loading`, true);
 };
 
 export const parseFrameRequest = async (request: FrameRequest) => {
