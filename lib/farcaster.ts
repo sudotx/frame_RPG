@@ -82,8 +82,9 @@ export const startFrame = createFrame(
 );
 export const dragonSpitsFireball = createFrame(
   FrameImageUrls.DRAGON_SPITS_FIRBALL_AT_KNIGHT,
-  "Loading",
-  `api/dragon_wins`
+  "Run Away",
+  `api/dragon_wins`,
+  "Try stabbing the beast"
 );
 export const dragonWins = createFrame(
   FrameImageUrls.DRAGON_WINS,
