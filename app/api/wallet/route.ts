@@ -38,16 +38,19 @@ export async function POST(req: NextRequest): Promise<Response> {
   // );
   // if (!embeddedWalletAddress) return new NextResponse(errorFrame);
 
-  if (buttonIndex === 1) {
-    return new NextResponse(
-      mintFrame("0x0000000000000000000000000000000000000001")
-    );
-  } else {
-    return new NextResponse(
-      mintFrame("0x0000000000000000000000000000000000000000")
-    );
-  }
+  // if (buttonIndex === 1) {
+  //   return new NextResponse(
+  //     mintFrame("0x0000000000000000000000000000000000000001")
+  //   );
+  // } else {
+  //   return new NextResponse(
+  //     mintFrame("0x0000000000000000000000000000000000000000")
+  //   );
+  // }
 
+  return new NextResponse(
+    mintFrame("0x0000000000000000000000000000000000000000")
+  );
   // return new NextResponse(createWalletFrame(embeddedWalletAddress));
 }
 
