@@ -2,6 +2,7 @@ import {
   errorFrame,
   knightsHorseBackFrame,
   parseFrameRequest,
+  testFrame,
 } from "@/lib/farcaster";
 import { createTransactionIntent } from "@/lib/nft";
 import { FrameRequest } from "@coinbase/onchainkit";
@@ -31,6 +32,8 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   if (buttonId === 1) {
     return new NextResponse(knightsHorseBackFrame);
+  } else if (buttonId === 2) {
+    return new NextResponse(testFrame);
   } else {
     return new NextResponse(errorFrame);
   }

@@ -57,6 +57,7 @@ export const createWalletFrame = (address: string) => {
     `api/mint/${address}`
   );
 };
+
 export const mintFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
@@ -80,6 +81,13 @@ export const startFrame = createFrame(
   "Loading",
   `api/recruit`
 );
+
+export const testFrame = createFrame(
+  FrameImageUrls.START,
+  "Testing",
+  `api/recruit`
+);
+
 export const dragonSpitsFireball = createFrame(
   FrameImageUrls.DRAGON_SPITS_FIRBALL_AT_KNIGHT,
   "Run Away",

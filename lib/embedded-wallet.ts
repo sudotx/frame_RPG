@@ -5,20 +5,6 @@ const OPENFORT_APP_SECRET = process.env.OPENFORT_APP_SECRET;
 
 const openfort = new Openfort(OPENFORT_APP_SECRET + "");
 
-export const createContractObject = async (
-  name: string,
-  chainId: number,
-  address: string
-) => {
-  const response = await openfort.contracts.create({
-    name: name,
-    chainId: chainId,
-    address: address,
-    abi: [],
-  });
-  return response;
-};
-
 export const createOrFindSmartWalletForFid = async (
   fid: number,
   ownerAddress: string
