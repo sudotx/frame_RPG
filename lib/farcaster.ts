@@ -57,6 +57,13 @@ export const createWalletFrame = (address: string) => {
     `api/mint/${address}`
   );
 };
+export const mintFrame = (address: string) => {
+  return createFrame(
+    FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
+    "Mint your Weapon",
+    `api/mint/${address}`
+  );
+};
 
 // after this show a loading frame
 export const duelDragonFrame = (address: string) => {
