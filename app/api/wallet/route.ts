@@ -15,6 +15,7 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   // let buttonId = frameRequest?.untrustedData.buttonIndex;
   // Parse and validate request from Frame for fid
+  const buttonIndex = frameRequest?.untrustedData.buttonIndex;
   try {
     frameRequest = await req.json();
 
@@ -36,9 +37,16 @@ export async function POST(req: NextRequest): Promise<Response> {
   //   ownerAddress
   // );
   // if (!embeddedWalletAddress) return new NextResponse(errorFrame);
-  return new NextResponse(
-    mintFrame("0x0000000000000000000000000000000000000000")
-  );
+
+  if (buttonIndex === 1) {
+    return new NextResponse(
+      mintFrame("0x0000000000000000000000000000000000000001")
+    );
+  } else {
+    return new NextResponse(
+      mintFrame("0x0000000000000000000000000000000000000000")
+    );
+  }
 
   // return new NextResponse(createWalletFrame(embeddedWalletAddress));
 }

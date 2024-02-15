@@ -10,6 +10,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
   // Parse and validate request from Frame for fid
+  let buttonId = frameRequest?.untrustedData.buttonIndex;
   try {
     frameRequest = await req.json();
     if (!frameRequest)
@@ -28,7 +29,11 @@ export async function POST(req: NextRequest): Promise<Response> {
   const tx = createTransactionIntent(address);
   if (!tx) return new NextResponse(errorFrame);
 
-  return new NextResponse(knightsHorseBackFrame);
+  if (buttonId === 1) {
+    return new NextResponse(knightsHorseBackFrame);
+  } else {
+    return new NextResponse(errorFrame);
+  }
 }
 
 export const dynamic = "force-dynamic";

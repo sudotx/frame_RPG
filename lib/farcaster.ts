@@ -62,7 +62,7 @@ export const mintFrame = (address: string) => {
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
     "Mint your Weapon",
     `api/mint/${address}`,
-    "Rather Cool Looking Sword"
+    "How about a spear?"
   );
 };
 
