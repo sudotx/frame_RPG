@@ -118,7 +118,7 @@ export const knightsHorseBackFrame = createFrame(
 export const errorFrame = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
-  "api/error",
+  "api/start",
   "Stay Right Here"
 );
 
