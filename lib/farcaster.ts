@@ -61,7 +61,8 @@ export const mintFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
     "Mint your Weapon",
-    `api/mint/${address}`
+    `api/mint/${address}`,
+    "Rather Cool Looking Sword"
   );
 };
 
