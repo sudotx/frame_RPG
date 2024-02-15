@@ -97,9 +97,9 @@ export const recruitFrame = createFrame(
 );
 export const FaceOff = createFrame(
   FrameImageUrls.FACE_OFF,
-  "Try fighting a fire breathing beast",
+  "Try fighting a Dragon",
   `api/spit_fireball`,
-  "Try reasoning with it"
+  "Try using your words"
 );
 export const knightsWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
