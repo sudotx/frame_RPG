@@ -29,17 +29,10 @@ export enum FrameImageUrls {
   ERROR = "https://untitled-unmastered.vercel.app/showlose.png",
 }
 
-// 1. create player, login
-// 2. mint character token
-// 3. host duel, or join existing duel
-// 4. duel frame, show fighter and fightee gravicons
-// NB: use memes to make an nft collection, or use SVG
-
 export const createFrame = (
   imageUrl: string,
   buttonText: string,
   apiPath: string,
-  isRedirect = false,
   buttonText2?: string
 ) => {
   return `
@@ -50,8 +43,9 @@ export const createFrame = (
             <meta name="fc:frame:image" content="${imageUrl}">
             <meta name="fc:frame:post_url" content="${FRAME_BASE_URL}/${apiPath}">
             <meta name="fc:frame:button:1" content="${buttonText}">
-            <meta name="fc:frame:button:1" content="${buttonText2}">
-            <meta name="fc:frame:button:1:action" content="${isRedirect ? "post_redirect" : "post"}">
+            <meta name="fc:frame:button:1:action">
+            <meta name="fc:frame:button:2" content="${buttonText2}">
+            <meta name="fc:frame:button:2:action">
             </head>
         </html>`;
 };
@@ -85,64 +79,59 @@ export const dragonSpitsFireball = createFrame(
 );
 export const dragonWins = createFrame(
   FrameImageUrls.DRAGON_WINS,
-  "Loading",
-  `api/loading`
+  "try again?",
+  `api/start`
 );
 export const recruitFrame = createFrame(
   FrameImageUrls.RECRUIT,
   "Loading",
-  `api/loading`
+  `api/knights_horse_back`
 );
 export const FaceOff = createFrame(
   FrameImageUrls.FACE_OFF,
   "Loading",
-  `api/loading`
+  `api/face_off`
 );
 export const knightsWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
   "Loading",
-  `api/loading`
+  `api/win`
 );
 export const knightsGuild = createFrame(
   FrameImageUrls.KNIGHTS_GUILD,
   "Loading",
-  `api/loading`
+  `api/knights_guild`
 );
 export const knightsHorseBackFrame = createFrame(
   FrameImageUrls.KNIGHT_HORSE_BACK,
   "Loading",
-  `api/loading`
+  `api/face_off`
 );
-export const loadingFrame = createFrame(
-  FrameImageUrls.LOADING,
-  "Loading",
-  `api/loading`
-);
-export const successFrame = createFrame(
-  FrameImageUrls.SUCCESS,
-  "Done",
-  "api/done"
-);
+
 export const errorFrame = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
-  "api/wallet"
+  "api/error"
 );
 
 export const ShowWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
   "Congratulations anon",
-  "api/wallet"
+  "api/finish"
 );
 
 export const ShowLose = createFrame(
   FrameImageUrls.DRAGON_WINS,
   "Try again?",
-  "api/wallet"
+  "api/start"
 );
 
 export const DuelingFrame = (address: string) => {
-  return createFrame(FrameImageUrls.FACE_OFF, "Dueling", `api/loading`, true);
+  return createFrame(
+    FrameImageUrls.FACE_OFF,
+    "Shall we begin",
+    `api/duel/${address}`
+  );
 };
 
 export const parseFrameRequest = async (request: FrameRequest) => {

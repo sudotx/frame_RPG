@@ -11,9 +11,11 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
 
+  let buttonId = frameRequest?.untrustedData.buttonIndex;
   // Parse and validate request from Frame for fid
   try {
     frameRequest = await req.json();
+
     if (!frameRequest)
       throw new Error("Could not deserialize request from frame");
   } catch {
@@ -32,6 +34,15 @@ export async function POST(req: NextRequest): Promise<Response> {
     ownerAddress
   );
   if (!embeddedWalletAddress) return new NextResponse(errorFrame);
+
+  let path: string;
+  if (buttonId === 1) {
+    path = "speedrunEth";
+  } else if (buttonId === 2) {
+    path = "sumsum";
+  } else {
+    path = "";
+  }
 
   return new NextResponse(createWalletFrame(embeddedWalletAddress));
 }
