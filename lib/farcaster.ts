@@ -112,8 +112,9 @@ export const knightsGuild = createFrame(
 );
 export const knightsHorseBackFrame = createFrame(
   FrameImageUrls.KNIGHT_HORSE_BACK,
-  "Loading",
-  `api/face_off`
+  "On your way to fight a dragon",
+  `api/face_off`,
+  "unreal right haha"
 );
 
 export const errorFrame = createFrame(
