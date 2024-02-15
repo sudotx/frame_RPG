@@ -75,7 +75,8 @@ export const duelDragonFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.FACE_OFF,
     "Prepare to fight the dragon",
-    `api/mint/${address}`
+    `api/duel/${address}`,
+    "or get burnt to a crisp"
   );
 };
 
@@ -124,7 +125,7 @@ export const knightsGuild = createFrame(
 export const knightsHorseBackFrame = createFrame(
   FrameImageUrls.KNIGHT_HORSE_BACK,
   "On your way to fight a dragon",
-  `api/face_off`,
+  `api/knight_approaches`,
   "unreal right"
 );
 export const approachDragonLair = createFrame(
