@@ -79,12 +79,6 @@ export const duelDragonFrame = (address: string) => {
   );
 };
 
-export const startFrame = createFrame(
-  FrameImageUrls.START,
-  "Loading",
-  `api/recruit`
-);
-
 export const testFrame = createFrame(
   FrameImageUrls.START,
   "Testing",
@@ -116,8 +110,8 @@ export const FaceOff = createFrame(
 );
 export const knightsWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
-  "Loading",
-  `api/win`
+  "Congrats on getting this far, you deserve this W",
+  `api/done`
 );
 export const knightsGuild = createFrame(
   FrameImageUrls.KNIGHTS_GUILD,
@@ -160,20 +154,23 @@ export const errorFrame = createFrame(
 export const ShowWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
   "Congratulations anon",
-  "api/finish"
+  "api/finish",
+  "They shall sing of your deeds in the streets"
 );
 
 export const ShowLose = createFrame(
   FrameImageUrls.DRAGON_WINS,
   "Try again?",
-  "api/start"
+  "api/done",
+  "grrarp"
 );
 
 export const DuelingFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.FACE_OFF,
     "Shall we begin",
-    `api/duel/${address}`
+    `api/duel/${address}`,
+    "The duel?"
   );
 };
 

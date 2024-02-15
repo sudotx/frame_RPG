@@ -30,10 +30,6 @@ export async function POST(req: NextRequest): Promise<Response> {
   const ownerAddress = await getOwnerAddressFromFid(fid);
   if (!ownerAddress) return new NextResponse(errorFrame);
 
-  // Send NFT to the user's wallet
-  // const tx = await airdropTo(address as `0x${string}`);
-  // if (!tx) return new NextResponse(errorFrame);
-
   // Generate an embedded wallet associated with the fid
   const embeddedWalletAddress = await createOrFindSmartWalletForFid(
     fid,

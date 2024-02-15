@@ -1,4 +1,8 @@
-import { errorFrame, parseFrameRequest, startFrame } from "@/lib/farcaster";
+import {
+  approachDragonLair,
+  errorFrame,
+  parseFrameRequest,
+} from "@/lib/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -11,13 +15,13 @@ export async function POST(req: NextRequest): Promise<Response> {
       throw new Error("could not deserialize request from frame");
     }
   } catch (error) {
-    return new NextResponse(startFrame);
+    return new NextResponse(errorFrame);
   }
 
   const { fid, isValid } = await parseFrameRequest(frameRequest);
   if (!fid || !isValid) return new NextResponse(errorFrame);
 
-  return new NextResponse(errorFrame);
+  return new NextResponse(approachDragonLair);
 }
 
 export const dynamic = "force-dynamic";

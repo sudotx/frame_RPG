@@ -1,7 +1,6 @@
 import {
   errorFrame,
-  getOwnerAddressFromFid,
-  knightsHorseBackFrame,
+  knightSneakAttack,
   parseFrameRequest,
 } from "@/lib/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
@@ -22,7 +21,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   const { fid, isValid } = await parseFrameRequest(frameRequest);
   if (!fid || !isValid) return new NextResponse(errorFrame);
 
-  return new NextResponse(knightsHorseBackFrame);
+  return new NextResponse(knightSneakAttack);
 }
 
 export const dynamic = "force-dynamic";
