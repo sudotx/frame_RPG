@@ -123,8 +123,8 @@ export const knightsHorseBackFrame = createFrame(
 export const errorFrame = createFrame(
   FrameImageUrls.ERROR,
   "Try again?",
-  "api/start",
-  "Stay Right Here"
+  "api/done",
+  "Stay Right Here?"
 );
 
 export const ShowWin = createFrame(
