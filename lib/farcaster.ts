@@ -27,6 +27,9 @@ export enum FrameImageUrls {
   KNIGHT_WIN = "https://untitled-unmastered.vercel.app/knightwin.jpg",
   RECRUIT = "https://untitled-unmastered.vercel.app/recruitingknights.jpg",
   ERROR = "https://untitled-unmastered.vercel.app/showlose.png",
+  FLEEING_KNIGHT = "https://untitled-unmastered.vercel.app/fleeing_knight.png",
+  APPROACHING = "https://untitled-unmastered.vercel.app/looking_at_drogo_lair.jpg",
+  KNIGHT_SNEAK_ATTACK = "https://untitled-unmastered.vercel.app/sneak_attack.jpg",
 }
 
 export const createFrame = (
@@ -125,7 +128,26 @@ export const knightsHorseBackFrame = createFrame(
   FrameImageUrls.KNIGHT_HORSE_BACK,
   "On your way to fight a dragon",
   `api/face_off`,
-  "unreal right haha"
+  "unreal right"
+);
+export const approachDragonLair = createFrame(
+  FrameImageUrls.APPROACHING,
+  "Almost there",
+  `api/face_off`,
+  "you ready?"
+);
+export const knightSneakAttack = createFrame(
+  FrameImageUrls.KNIGHT_SNEAK_ATTACK,
+  "Almost there",
+  `api/face_off`,
+  "you ready?"
+);
+
+export const knightRunsAway = createFrame(
+  FrameImageUrls.FLEEING_KNIGHT,
+  "Almost there",
+  `api/face_off`,
+  "you ready?"
 );
 
 export const errorFrame = createFrame(

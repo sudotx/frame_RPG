@@ -2,7 +2,6 @@ import {
   errorFrame,
   knightsHorseBackFrame,
   parseFrameRequest,
-  testFrame,
 } from "@/lib/farcaster";
 import { createTransactionIntent } from "@/lib/nft";
 import { FrameRequest } from "@coinbase/onchainkit";
@@ -10,8 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
-  // Parse and validate request from Frame for fid
-  let buttonId = frameRequest?.untrustedData.buttonIndex;
+  // Parse and validate request from Frame for fids
   try {
     frameRequest = await req.json();
     if (!frameRequest)
@@ -28,16 +26,11 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   // Send NFT to the user's wallet
   const tx = createTransactionIntent(address);
-  if (!tx) return new NextResponse(errorFrame);
-
-  // if (buttonId === 1) {
-  //   return new NextResponse(knightsHorseBackFrame);
-  // } else if (buttonId === 2) {
-  //   return new NextResponse(testFrame);
-  // } else {
-  //   return new NextResponse(errorFrame);
-  // }
-  return new NextResponse(knightsHorseBackFrame);
+  if (!tx) {
+    return new NextResponse(errorFrame);
+  } else {
+    return new NextResponse(knightsHorseBackFrame);
+  }
 }
 
 export const dynamic = "force-dynamic";
