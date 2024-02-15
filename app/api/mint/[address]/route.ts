@@ -30,13 +30,14 @@ export async function POST(req: NextRequest): Promise<Response> {
   const tx = createTransactionIntent(address);
   if (!tx) return new NextResponse(errorFrame);
 
-  if (buttonId === 1) {
-    return new NextResponse(knightsHorseBackFrame);
-  } else if (buttonId === 2) {
-    return new NextResponse(testFrame);
-  } else {
-    return new NextResponse(errorFrame);
-  }
+  // if (buttonId === 1) {
+  //   return new NextResponse(knightsHorseBackFrame);
+  // } else if (buttonId === 2) {
+  //   return new NextResponse(testFrame);
+  // } else {
+  //   return new NextResponse(errorFrame);
+  // }
+  return new NextResponse(knightsHorseBackFrame);
 }
 
 export const dynamic = "force-dynamic";
