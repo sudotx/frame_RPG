@@ -89,7 +89,7 @@ export const dragonSpitsFireball = createFrame(
 export const dragonWins = createFrame(
   FrameImageUrls.DRAGON_WINS,
   "I guess that did not work",
-  `api/start`,
+  `api/done`,
   "Try Again?"
 );
 export const recruitFrame = createFrame(
