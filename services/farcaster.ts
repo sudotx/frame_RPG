@@ -100,7 +100,8 @@ export const dragonWins = createFrame(
 export const recruitFrame = createFrame(
   FrameImageUrls.RECRUIT,
   "Loading",
-  `api/knights_horse_back`
+  `api/knights_horse_back`,
+  ""
 );
 export const FaceOff = createFrame(
   FrameImageUrls.FACE_OFF,
@@ -111,12 +112,14 @@ export const FaceOff = createFrame(
 export const knightsWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
   "Congrats on getting this far, you deserve this W",
-  `api/done`
+  `api/done`,
+  ""
 );
 export const knightsGuild = createFrame(
   FrameImageUrls.KNIGHTS_GUILD,
   "Loading",
-  `api/knights_guild`
+  `api/knights_guild`,
+  ""
 );
 export const knightsHorseBackFrame = createFrame(
   FrameImageUrls.KNIGHT_HORSE_BACK,

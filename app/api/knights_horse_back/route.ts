@@ -3,7 +3,7 @@ import {
   getOwnerAddressFromFid,
   knightsHorseBackFrame,
   parseFrameRequest,
-} from "@/lib/farcaster";
+} from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 

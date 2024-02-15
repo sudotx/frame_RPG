@@ -1,4 +1,8 @@
-import { errorFrame, parseFrameRequest, recruitFrame } from "@/lib/farcaster";
+import {
+  errorFrame,
+  parseFrameRequest,
+  recruitFrame,
+} from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 

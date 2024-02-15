@@ -1,7 +1,7 @@
 import RedirectToDemo from '@/components/redirect';
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
-import { FRAME_BASE_URL, FrameImageUrls } from '../lib/farcaster';
+import { FRAME_BASE_URL, FrameImageUrls } from '../services/farcaster';
 
 const frameMetadata = getFrameMetadata({
   image: FrameImageUrls.START,

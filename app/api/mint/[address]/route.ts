@@ -2,8 +2,8 @@ import {
   errorFrame,
   knightsHorseBackFrame,
   parseFrameRequest,
-} from "@/lib/farcaster";
-import { createTransactionIntent } from "@/lib/nft";
+} from "@/services/farcaster";
+import { createTransactionIntent } from "@/services/nft";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 

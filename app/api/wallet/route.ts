@@ -1,10 +1,10 @@
-import { createOrFindSmartWalletForFid } from "@/lib/embedded-wallet";
+import { createOrFindSmartWalletForFid } from "@/services/embedded-wallet";
 import {
   errorFrame,
   getOwnerAddressFromFid,
   mintFrame,
   parseFrameRequest,
-} from "@/lib/farcaster";
+} from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
