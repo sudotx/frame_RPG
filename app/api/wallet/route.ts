@@ -31,7 +31,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   );
   if (!embeddedWalletAddress) return new NextResponse(errorFrame);
 
-  return new NextResponse(mintFrame(embeddedWalletAddress));
+  return new NextResponse(mintFrame(embeddedWalletAddress as `0x${string}`));
 }
 
 export const dynamic = "force-dynamic";
