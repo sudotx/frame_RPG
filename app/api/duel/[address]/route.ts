@@ -11,14 +11,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
 
-  try {
-    frameRequest = await req.json();
-    if (!frameRequest) {
-      throw new Error("could not deserialize request from frame");
-    }
-  } catch (error) {
-    return new NextResponse(errorFrame);
+  frameRequest = await req.json();
+  if (!frameRequest) {
+    throw new Error("could not deserialize request from frame");
   }
+
+  const buttonId = frameRequest.untrustedData.buttonIndex;
 
   const { fid, isValid } = await parseFrameRequest(frameRequest);
   if (!fid || !isValid) return new NextResponse(errorFrame);
@@ -37,7 +35,11 @@ export async function POST(req: NextRequest): Promise<Response> {
   );
   if (!embeddedWalletAddress) return new NextResponse(errorFrame);
 
-  return new NextResponse(DuelingFrame(embeddedWalletAddress));
+  if (buttonId === 1) {
+    return new NextResponse(DuelingFrame(embeddedWalletAddress));
+  } else {
+    return new NextResponse(DuelingFrame(embeddedWalletAddress));
+  }
 }
 
 export const dynamic = "force-dynamic";

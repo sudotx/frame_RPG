@@ -10,13 +10,9 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
   // Parse and validate request from Frame for fids
-  try {
-    frameRequest = await req.json();
-    if (!frameRequest)
-      throw new Error("Could not deserialize request from frame");
-  } catch (e) {
-    return new NextResponse(errorFrame);
-  }
+  frameRequest = await req.json();
+  if (!frameRequest)
+    throw new Error("Could not deserialize request from frame");
 
   const { fid, isValid } = await parseFrameRequest(frameRequest);
   if (!fid || !isValid) return new NextResponse(errorFrame);
