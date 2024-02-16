@@ -1,5 +1,6 @@
 import {
   errorFrame,
+  knightHavingAHardTime,
   knightsHorseBackFrame,
   parseFrameRequest,
 } from "@/services/farcaster";
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest): Promise<Response> {
     return new NextResponse(knightsHorseBackFrame);
   } else {
     // user selects spear
-    return new NextResponse(knightsHorseBackFrame);
+    return new NextResponse(knightHavingAHardTime);
   }
 }
 

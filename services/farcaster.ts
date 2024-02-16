@@ -39,8 +39,11 @@ export enum FrameImageUrls {
   KNIGHT_SNEAK_ATTACK = "https://untitled-unmastered.vercel.app/sneak_attack.jpg",
   KNIGHT_USES_MAGIC = "https://untitled-unmastered.vercel.app/knight_uses_magic.jpg",
   KNIGHT_PLAYS_RPS = "https://untitled-unmastered.vercel.app/knight_plays_rps.jpg",
+  KNIGHT_GIVE_UP = "https://untitled-unmastered.vercel.app/knight_give_up.jpg",
+  KNIGHT_LOSS = "https://untitled-unmastered.vercel.app/knight_loss.jpg",
 }
 
+// general frame architecture
 export const createFrame = (
   imageUrl: string,
   buttonText: string,
@@ -62,22 +65,31 @@ export const createFrame = (
         </html>`;
 };
 
+// mint WPN
 export const mintFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
-    "Mint yourself a Sword",
+    "Mint Yourself A Sword",
     `api/mint/${address}`,
-    "How about a Spear instead?"
+    "How About A Spear Instead?"
   );
 };
 
-// after this show a loading frame
+export const RecruitFrame = (address: string) => {
+  return createFrame(
+    FrameImageUrls.RECRUIT,
+    "Join The Fight",
+    `api/mint/${address}`,
+    "To Fight For The Land?"
+  );
+};
+
 export const duelDragonFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.FACE_OFF,
-    "Prepare to fight the dragon",
+    "Prepare To Fight The Dragon",
     `api/duel/${address}`,
-    "or get burnt to a crisp"
+    "Or Get Burnt To A Crisp"
   );
 };
 
@@ -87,127 +99,131 @@ export const dragonSpitsFireball = createFrame(
   `api/dragon_wins`,
   "Try Stabbing The Beast"
 );
+
 export const dragonWins = createFrame(
   FrameImageUrls.DRAGON_WINS,
   "I Guess That Did Not Work",
   `api/done`,
   "Try Again?"
 );
-export const recruitFrame = createFrame(
-  FrameImageUrls.RECRUIT,
-  "Join the Fight",
-  `api/knights_horse_back`,
-  "To Protect the Land"
-);
+
 export const FaceOff = createFrame(
   FrameImageUrls.FACE_OFF,
   "Try Fighting The Dragon",
   `api/spit_fireball`,
   "Try Using Your Words"
 );
+
 export const knightsWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
   "Congrats On Getting This Far, You Deserve This W",
   `api/done`,
   "Go Again?"
 );
+
 export const knightsGuild = createFrame(
   FrameImageUrls.KNIGHTS_GUILD,
   "Join The Guild?",
   `api/knights_guild`,
   "Protect The Land"
 );
+
 export const knightsHorseBackFrame = createFrame(
   FrameImageUrls.KNIGHT_HORSE_BACK,
   "On Your Way To Fight A Dragon",
   `api/knight_approaches`,
   "Try Looking For Mordor, The Great"
 );
+
 export const approachDragonLair = createFrame(
   FrameImageUrls.APPROACHING,
   "Almost There",
   `api/face_off`,
   "Cast One Of The Spells You Just Learnt"
 );
+
 export const knightCastsOutOfControlSpells = createFrame(
   FrameImageUrls.KNIGHT_OUT_OF_CONTROL,
   "Oh, Well You Unleashed Dormamu Unto This World",
   `api/face_off`,
   "Cast One Of The Spells You Just Learnt"
 );
+
 export const phoenixDestroysWorld = createFrame(
   FrameImageUrls.PHOENIX_DESTROY,
   "Its All Over",
   `api/done`,
   "Try Again?"
 );
+
 export const wizardTeachesKnightMagic = createFrame(
   FrameImageUrls.WIZARD_TEACHES_KNIGHT,
   "Wizard Teaches The Knight To Better Use Words",
   `api/done`,
   "Think You're Ready Now"
 );
+
 export const knightLooksForWizard = createFrame(
-  FrameImageUrls.KNIGHT_FINDS_WIZARD,
-  "Its All Over",
+  FrameImageUrls.KNIGHT_MEETS_WIZARD,
+  "???",
   `api/done`,
-  "Try Again?"
+  "Exclaim"
 );
+
 export const knightFindsForWizard = createFrame(
   FrameImageUrls.KNIGHT_FINDS_WIZARD,
-  "Its All Over",
-  `api/done`,
-  "Try Again?"
+  "Learn Magic",
+  `api/knight_finds_wizard`,
+  "Just Hangout"
 );
+
 export const TimeTravellersHorseBack = createFrame(
   FrameImageUrls.KNIGHT_MEET_TIMETRV,
   "???",
   `api/done`,
   "???"
 );
+
 export const blacksmithHandsOverSpearToDude = createFrame(
   FrameImageUrls.SMITH_GIVES_SPEAR,
   "its all over",
   `api/done`,
   "Try Again?"
 );
+
 export const knightHavingAHardTime = createFrame(
   FrameImageUrls.KNIGHT_SCARED,
-  "its all over",
-  `api/done`,
-  "Try Again?"
+  "Give up?",
+  `api/knight_having_hard_time`,
+  "Keep Pushing"
 );
+
 export const enemyCountryInvades = createFrame(
   FrameImageUrls.APPROACHING,
-  "its all over",
+  "Join the fight",
   `api/done`,
-  "Try Again?"
+  "Join the Opposition"
 );
-export const AliensInvade = createFrame(
-  FrameImageUrls.APPROACHING,
-  "its all over",
-  `api/done`,
-  "Try Again?"
-);
+
 export const HordeOfDragonsInvade = createFrame(
   FrameImageUrls.KNIGHTS_BAND_TOGETHER,
   "???",
-  `api/done`,
+  `api/war`,
   "???"
 );
 
 export const knightSneakAttack = createFrame(
   FrameImageUrls.KNIGHT_SNEAK_ATTACK,
   "Almost there",
-  `api/face_off`,
+  `api/knights_flees`,
   "you ready?"
 );
 
 export const knightRunsAway = createFrame(
   FrameImageUrls.FLEEING_KNIGHT,
-  "Almost there",
-  `api/face_off`,
-  "you ready?"
+  "Go back home",
+  `api/done`,
+  "Exile yourself"
 );
 
 export const errorFrame = createFrame(
@@ -220,7 +236,7 @@ export const errorFrame = createFrame(
 export const ShowWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
   "Congratulations anon",
-  "api/finish",
+  "api/knghts_win",
   "They shall sing of your deeds in the streets"
 );
 
@@ -228,19 +244,49 @@ export const ShowLose = createFrame(
   FrameImageUrls.DRAGON_WINS,
   "Try again?",
   "api/done",
-  "grrarp"
+  "???"
 );
+
 export const KnightUsesMagic = createFrame(
   FrameImageUrls.KNIGHT_USES_MAGIC,
   "you cast volley of lead on the dragon",
-  "api/done",
+  "api/knight_uses_magic",
   "???"
 );
+
 export const KnightPlaysRps = createFrame(
   FrameImageUrls.KNIGHT_PLAYS_RPS,
   "Rock",
   "api/duel",
   "Paper"
+);
+
+export const knightGiveUp = createFrame(
+  FrameImageUrls.KNIGHT_GIVE_UP,
+  "Try again?",
+  "api/duel",
+  "Go back home"
+);
+
+export const oneOne = createFrame(
+  FrameImageUrls.KNIGHT_LOSS,
+  "Rock",
+  "api/knights_flees",
+  "Paper"
+);
+
+export const twoTwo = createFrame(
+  FrameImageUrls.KNIGHT_LOSS,
+  "???",
+  "api/knights_flees",
+  "???"
+);
+
+export const KnightLoss = createFrame(
+  FrameImageUrls.KNIGHT_LOSS,
+  "???",
+  "api/done",
+  "???"
 );
 
 export const parseFrameRequest = async (request: FrameRequest) => {

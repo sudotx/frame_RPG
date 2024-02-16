@@ -4,7 +4,6 @@ import {
   getOwnerAddressFromFid,
   mintFrame,
   parseFrameRequest,
-  testFrame,
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";

@@ -1,6 +1,7 @@
 import {
   dragonWins,
   errorFrame,
+  knightRunsAway,
   parseFrameRequest,
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
@@ -19,7 +20,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   // if (!fid || !isValid) return new NextResponse(errorFrame);
 
   if (buttonId === 1) {
-    return new NextResponse(dragonWins);
+    return new NextResponse(knightRunsAway);
   } else {
     return new NextResponse(dragonWins);
   }

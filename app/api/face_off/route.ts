@@ -1,4 +1,9 @@
-import { FaceOff, errorFrame, parseFrameRequest } from "@/services/farcaster";
+import {
+  FaceOff,
+  KnightUsesMagic,
+  errorFrame,
+  parseFrameRequest,
+} from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -18,7 +23,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (buttonId === 1) {
     return new NextResponse(FaceOff);
   } else {
-    return new NextResponse(FaceOff);
+    return new NextResponse(KnightUsesMagic);
   }
 }
 
