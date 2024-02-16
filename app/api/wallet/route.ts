@@ -7,20 +7,16 @@ import {
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
-import { zeroAddress } from "viem";
 
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
 
   // Parse and validate request from Frame for fid
-  try {
-    frameRequest = await req.json();
+  frameRequest = await req.json();
 
-    if (!frameRequest)
-      throw new Error("Could not deserialize request from frame");
-  } catch {
-    return new NextResponse(errorFrame);
-  }
+  if (!frameRequest)
+    throw new Error("Could not deserialize request from frame");
+
   const { fid, isValid } = await parseFrameRequest(frameRequest);
   if (!fid || !isValid) return new NextResponse(errorFrame);
 
@@ -29,7 +25,6 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (!ownerAddress) return new NextResponse(errorFrame);
 
   // Generate an embedded wallet associated with the fid
-
   const embeddedWalletAddress = await createOrFindSmartWalletForFid(
     fid,
     ownerAddress
