@@ -1,4 +1,4 @@
-import { mintFrame } from "@/services/farcaster";
+import { errorFrame, mintFrame, parseFrameRequest } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -13,8 +13,11 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   console.log("frame-request", frameRequest);
 
-  // const { fid, isValid } = await parseFrameRequest(frameRequest);
-  // if (!fid || !isValid) return new NextResponse(errorFrame);
+  const { fid, isValid } = await parseFrameRequest(frameRequest);
+  if (!fid || !isValid) return new NextResponse(errorFrame);
+
+  console.log("fid", fid);
+  console.log("isValid", isValid);
 
   // // Query Farcaster Registry contract to get owner address from fid
   // const ownerAddress = await getOwnerAddressFromFid(fid);
