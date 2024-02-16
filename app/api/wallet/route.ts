@@ -13,14 +13,15 @@ export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
 
   // Parse and validate request from Frame for fid
-  try {
-    frameRequest = await req.json();
+  frameRequest = await req.json();
 
-    if (!frameRequest)
-      throw new Error("Could not deserialize request from frame");
-  } catch (error) {
-    return new NextResponse(errorFrame);
+  if (!frameRequest) {
+    throw new Error("Could not deserialize request from frame");
   }
+  // try {
+  // } catch (error) {
+  //   return new NextResponse(errorFrame);
+  // }
 
   const { fid, isValid } = await parseFrameRequest(frameRequest);
   if (!fid || !isValid) return new NextResponse(errorFrame);
