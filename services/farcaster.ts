@@ -145,8 +145,8 @@ export const approachDragonLair = createFrame(
 export const knightCastsOutOfControlSpells = createFrame(
   FrameImageUrls.KNIGHT_OUT_OF_CONTROL,
   "Oh, Well You Unleashed Dormamu Unto This World",
-  `api/face_off`,
-  "Cast One Of The Spells You Just Learnt"
+  `api/knights_ooc`,
+  "Cast Another One Of The Spells You Just Learnt"
 );
 
 export const phoenixDestroysWorld = createFrame(
@@ -186,9 +186,9 @@ export const TimeTravellersHorseBack = createFrame(
 
 export const blacksmithHandsOverSpearToDude = createFrame(
   FrameImageUrls.SMITH_GIVES_SPEAR,
-  "its all over",
-  `api/done`,
-  "Try Again?"
+  "Give Up?",
+  `api/war`,
+  "Fight On?"
 );
 
 export const knightHavingAHardTime = createFrame(
@@ -257,14 +257,14 @@ export const KnightUsesMagic = createFrame(
 export const KnightPlaysRps = createFrame(
   FrameImageUrls.KNIGHT_PLAYS_RPS,
   "Rock",
-  "api/duel",
+  "api/knight_play_rps",
   "Paper"
 );
 
 export const knightGiveUp = createFrame(
   FrameImageUrls.KNIGHT_GIVE_UP,
   "Try again?",
-  "api/duel",
+  "api/knight_flees",
   "Go back home"
 );
 
