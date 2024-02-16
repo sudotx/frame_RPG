@@ -1,13 +1,6 @@
-import { createOrFindSmartWalletForFid } from "@/services/embedded-wallet";
-import {
-  errorFrame,
-  getOwnerAddressFromFid,
-  mintFrame,
-  parseFrameRequest,
-} from "@/services/farcaster";
+import { mintFrame } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
-import { zeroAddress } from "viem";
 
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
@@ -32,7 +25,11 @@ export async function POST(req: NextRequest): Promise<Response> {
   // );
   // if (!embeddedWalletAddress) return new NextResponse(errorFrame);
 
-  return new NextResponse(mintFrame(zeroAddress));
+  return new NextResponse(
+    mintFrame(
+      "0x59d6d3118ccb1e9c54f9c701ca1e7140087236f86ab9ccdd9f0731a9ea84708"
+    )
+  );
 }
 
 export const dynamic = "force-dynamic";
