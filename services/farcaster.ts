@@ -232,15 +232,15 @@ export const ShowLose = createFrame(
 );
 export const KnightUsesMagic = createFrame(
   FrameImageUrls.KNIGHT_USES_MAGIC,
-  "Try again?",
+  "you cast volley of lead on the dragon",
   "api/done",
-  "grrarp"
+  "???"
 );
 export const KnightPlaysRps = createFrame(
   FrameImageUrls.KNIGHT_PLAYS_RPS,
-  "Try again?",
-  "api/done",
-  "grrarp"
+  "Rock",
+  "api/duel",
+  "Paper"
 );
 
 export const parseFrameRequest = async (request: FrameRequest) => {
