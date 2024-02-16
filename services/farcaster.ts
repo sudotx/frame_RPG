@@ -64,9 +64,9 @@ export const createWalletFrame = (address: string) => {
 export const mintFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
-    "Mint your Weapon",
+    "Mint yourself a Sword",
     `api/mint/${address}`,
-    "How about a spear?"
+    "How about a Spear instead?"
   );
 };
 
