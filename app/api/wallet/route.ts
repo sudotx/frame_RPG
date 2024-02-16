@@ -18,11 +18,12 @@ export async function POST(req: NextRequest): Promise<Response> {
 
     if (!frameRequest)
       throw new Error("Could not deserialize request from frame");
-    const { fid, isValid } = await parseFrameRequest(frameRequest);
-    if (!fid || !isValid) return new NextResponse(errorFrame);
   } catch (error) {
     return new NextResponse(errorFrame);
   }
+
+  const { fid, isValid } = await parseFrameRequest(frameRequest);
+  if (!fid || !isValid) return new NextResponse(errorFrame);
 
   // // Query Farcaster Registry contract to get owner address from fid
   // const ownerAddress = await getOwnerAddressFromFid(fid);
