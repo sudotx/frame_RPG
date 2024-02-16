@@ -24,14 +24,14 @@ export async function POST(req: NextRequest): Promise<Response> {
   const ownerAddress = await getOwnerAddressFromFid(fid);
   if (!ownerAddress) return new NextResponse(errorFrame);
 
-  // Generate an embedded wallet associated with the fid
-  const embeddedWalletAddress = await createOrFindSmartWalletForFid(
-    fid,
-    ownerAddress
-  );
-  if (!embeddedWalletAddress) return new NextResponse(errorFrame);
+  // // Generate an embedded wallet associated with the fid
+  // const embeddedWalletAddress = await createOrFindSmartWalletForFid(
+  //   fid,
+  //   ownerAddress
+  // );
+  // if (!embeddedWalletAddress) return new NextResponse(errorFrame);
 
-  return new NextResponse(mintFrame(embeddedWalletAddress as `0x${string}`));
+  return new NextResponse(mintFrame("embeddedWalletAddress" as `0x${string}`));
 }
 
 export const dynamic = "force-dynamic";
