@@ -12,24 +12,33 @@ const ZERO_ADDRESS: `0x${string}` =
 const HUB_URL = "nemes.farcaster.xyz:2283";
 
 export enum FrameImageUrls {
-  SUCCESS = "https://untitled-unmastered.vercel.app/success.png",
-  WALLET = "https://untitled-unmastered.vercel.app/wallet.png",
-  LOADING = "https://untitled-unmastered.vercel.app/dragonburnsknight.jpg",
-  DRAGON_SPITS_FIRBALL_AT_KNIGHT = "https://untitled-unmastered.vercel.app/dragonbreathefire.jpg",
-  FRIENDLY_WITH_DRAGON = "https://untitled-unmastered.vercel.app/dragonandknightfrends.jpg",
   MINT_PAGE_WITH_BLACKSMITH = "https://untitled-unmastered.vercel.app/blacksmith.jpg",
+  FRIENDLY_WITH_DRAGON = "https://untitled-unmastered.vercel.app/dragonandknightfrends.jpg",
+  DRAGON_SPITS_FIRBALL_AT_KNIGHT = "https://untitled-unmastered.vercel.app/dragonbreathefire.jpg",
   START = "https://untitled-unmastered.vercel.app/dragonfaceoff.jpg",
   FACE_OFF = "https://untitled-unmastered.vercel.app/dragonfaceoff2.jpg",
-  DRAGON_WINS = "https://untitled-unmastered.vercel.app/dragonburnsknight.jpg",
   DRAGON_SOARING_FREE = "https://untitled-unmastered.vercel.app/dragonwin.jpg",
+  DRAGON_WINS = "https://untitled-unmastered.vercel.app/dragonburnsknight.jpg",
+  FLEEING_KNIGHT = "https://untitled-unmastered.vercel.app/fleeing_knight.png",
   KNIGHT_HORSE_BACK = "https://untitled-unmastered.vercel.app/horseback.jpg",
   KNIGHTS_GUILD = "https://untitled-unmastered.vercel.app/knightguild.jpg",
   KNIGHT_WIN = "https://untitled-unmastered.vercel.app/knightwin.jpg",
-  RECRUIT = "https://untitled-unmastered.vercel.app/recruitingknights.jpg",
-  ERROR = "https://untitled-unmastered.vercel.app/showlose.png",
-  FLEEING_KNIGHT = "https://untitled-unmastered.vercel.app/fleeing_knight.png",
   APPROACHING = "https://untitled-unmastered.vercel.app/looking_at_drogo_lair.jpg",
+  RECRUIT = "https://untitled-unmastered.vercel.app/recruitingknights.jpg",
+  DRAGON_HORDE = "https://untitled-unmastered.vercel.app/dragon_horde.jpg",
+  KNIGHTS_BAND_TOGETHER = "https://untitled-unmastered.vercel.app/knight_band_with_dragons.jpg",
+  PHOENIX_DESTROY = "https://untitled-unmastered.vercel.app/phoenix_destroy.jpg",
+  KNIGHT_OUT_OF_CONTROL = "https://untitled-unmastered.vercel.app/knight_ooc.jpg",
+  WIZARD_TEACHES_KNIGHT = "https://untitled-unmastered.vercel.app/wizards_teaches_knight.jpg",
+  KNIGHT_MEETS_WIZARD = "https://untitled-unmastered.vercel.app/knights_meet_wizard.jpg",
+  KNIGHT_FINDS_WIZARD = "https://untitled-unmastered.vercel.app/knights_finds_wizards.jpg",
+  KNIGHT_MEET_TIMETRV = "https://untitled-unmastered.vercel.app/knights_meet_timetravellers.jpg",
+  SMITH_GIVES_SPEAR = "https://untitled-unmastered.vercel.app/knight_spear.jpg",
+  KNIGHT_SCARED = "https://untitled-unmastered.vercel.app/knight_scared.jpg",
+  KNIGHT_FIGHTS_DRAGON = "https://untitled-unmastered.vercel.app/knight_fight_with_dragon.jpg",
   KNIGHT_SNEAK_ATTACK = "https://untitled-unmastered.vercel.app/sneak_attack.jpg",
+  KNIGHT_USES_MAGIC = "https://untitled-unmastered.vercel.app/knight_uses_magic.jpg",
+  KNIGHT_PLAYS_RPS = "https://untitled-unmastered.vercel.app/knight_plays_rps.jpg",
 }
 
 export const createFrame = (
@@ -53,14 +62,6 @@ export const createFrame = (
         </html>`;
 };
 
-export const createWalletFrame = (address: string) => {
-  return createFrame(
-    FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
-    "Mint your Weapon",
-    `api/mint/${address}`
-  );
-};
-
 export const mintFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
@@ -80,60 +81,121 @@ export const duelDragonFrame = (address: string) => {
   );
 };
 
-export const testFrame = createFrame(
-  FrameImageUrls.START,
-  "Testing",
-  `api/recruit`
-);
-
 export const dragonSpitsFireball = createFrame(
   FrameImageUrls.DRAGON_SPITS_FIRBALL_AT_KNIGHT,
   "Run Away",
   `api/dragon_wins`,
-  "Try stabbing the beast"
+  "Try Stabbing The Beast"
 );
 export const dragonWins = createFrame(
   FrameImageUrls.DRAGON_WINS,
-  "I guess that did not work",
+  "I Guess That Did Not Work",
   `api/done`,
   "Try Again?"
 );
 export const recruitFrame = createFrame(
   FrameImageUrls.RECRUIT,
-  "Loading",
+  "Join the Fight",
   `api/knights_horse_back`,
-  ""
+  "To Protect the Land"
 );
 export const FaceOff = createFrame(
   FrameImageUrls.FACE_OFF,
-  "Try fighting a Dragon",
+  "Try Fighting The Dragon",
   `api/spit_fireball`,
-  "Try using your words"
+  "Try Using Your Words"
 );
 export const knightsWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
-  "Congrats on getting this far, you deserve this W",
+  "Congrats On Getting This Far, You Deserve This W",
   `api/done`,
-  ""
+  "Go Again?"
 );
 export const knightsGuild = createFrame(
   FrameImageUrls.KNIGHTS_GUILD,
-  "Loading",
+  "Join The Guild?",
   `api/knights_guild`,
-  ""
+  "Protect The Land"
 );
 export const knightsHorseBackFrame = createFrame(
   FrameImageUrls.KNIGHT_HORSE_BACK,
-  "On your way to fight a dragon",
+  "On Your Way To Fight A Dragon",
   `api/knight_approaches`,
-  "unreal right"
+  "Try Looking For Mordor, The Great"
 );
 export const approachDragonLair = createFrame(
   FrameImageUrls.APPROACHING,
-  "Almost there",
+  "Almost There",
   `api/face_off`,
-  "you ready?"
+  "Cast One Of The Spells You Just Learnt"
 );
+export const knightCastsOutOfControlSpells = createFrame(
+  FrameImageUrls.KNIGHT_OUT_OF_CONTROL,
+  "Oh, Well You Unleashed Dormamu Unto This World",
+  `api/face_off`,
+  "Cast One Of The Spells You Just Learnt"
+);
+export const phoenixDestroysWorld = createFrame(
+  FrameImageUrls.PHOENIX_DESTROY,
+  "Its All Over",
+  `api/done`,
+  "Try Again?"
+);
+export const wizardTeachesKnightMagic = createFrame(
+  FrameImageUrls.WIZARD_TEACHES_KNIGHT,
+  "Wizard Teaches The Knight To Better Use Words",
+  `api/done`,
+  "Think You're Ready Now"
+);
+export const knightLooksForWizard = createFrame(
+  FrameImageUrls.KNIGHT_FINDS_WIZARD,
+  "Its All Over",
+  `api/done`,
+  "Try Again?"
+);
+export const knightFindsForWizard = createFrame(
+  FrameImageUrls.KNIGHT_FINDS_WIZARD,
+  "Its All Over",
+  `api/done`,
+  "Try Again?"
+);
+export const TimeTravellersHorseBack = createFrame(
+  FrameImageUrls.KNIGHT_MEET_TIMETRV,
+  "???",
+  `api/done`,
+  "???"
+);
+export const blacksmithHandsOverSpearToDude = createFrame(
+  FrameImageUrls.SMITH_GIVES_SPEAR,
+  "its all over",
+  `api/done`,
+  "Try Again?"
+);
+export const knightHavingAHardTime = createFrame(
+  FrameImageUrls.KNIGHT_SCARED,
+  "its all over",
+  `api/done`,
+  "Try Again?"
+);
+export const enemyCountryInvades = createFrame(
+  FrameImageUrls.APPROACHING,
+  "its all over",
+  `api/done`,
+  "Try Again?"
+);
+export const AliensInvade = createFrame(
+  FrameImageUrls.APPROACHING,
+  "its all over",
+  `api/done`,
+  "Try Again?"
+);
+export const HordeOfDragonsInvade = createFrame(
+  FrameImageUrls.KNIGHTS_BAND_TOGETHER,
+  "???",
+  `api/done`,
+  "???"
+);
+
 export const knightSneakAttack = createFrame(
   FrameImageUrls.KNIGHT_SNEAK_ATTACK,
   "Almost there",
@@ -168,15 +230,18 @@ export const ShowLose = createFrame(
   "api/done",
   "grrarp"
 );
-
-export const DuelingFrame = (address: string) => {
-  return createFrame(
-    FrameImageUrls.FACE_OFF,
-    "Shall we begin",
-    `api/duel/${address}`,
-    "The duel?"
-  );
-};
+export const KnightUsesMagic = createFrame(
+  FrameImageUrls.KNIGHT_USES_MAGIC,
+  "Try again?",
+  "api/done",
+  "grrarp"
+);
+export const KnightPlaysRps = createFrame(
+  FrameImageUrls.KNIGHT_PLAYS_RPS,
+  "Try again?",
+  "api/done",
+  "grrarp"
+);
 
 export const parseFrameRequest = async (request: FrameRequest) => {
   const hub = getSSLHubRpcClient(HUB_URL);
