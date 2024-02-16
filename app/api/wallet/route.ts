@@ -11,6 +11,8 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (!frameRequest)
     throw new Error("Could not deserialize request from frame");
 
+  console.log("frame-request", frameRequest);
+
   // const { fid, isValid } = await parseFrameRequest(frameRequest);
   // if (!fid || !isValid) return new NextResponse(errorFrame);
 

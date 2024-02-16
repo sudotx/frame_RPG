@@ -3,7 +3,7 @@ import {
   knightsHorseBackFrame,
   parseFrameRequest,
 } from "@/services/farcaster";
-import { createTransactionIntent } from "@/services/nft";
+import { createTokenMintIntent } from "@/services/nft";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (typeof address !== "string") return new NextResponse(errorFrame);
 
   // Send NFT to the user's wallet
-  const tx = createTransactionIntent(address);
+  const tx = createTokenMintIntent(address);
   if (!tx) {
     return new NextResponse(errorFrame);
   } else {

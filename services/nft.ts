@@ -7,7 +7,7 @@ const DEVELOPER_ACCOUNT_ID = process.env.DEVELOPER_ACCOUNT_ID!;
 const OPENFORT_API_KEY = process.env.OPENFORT_API_KEY!;
 const openfort = new Openfort(OPENFORT_API_KEY);
 
-export const createTransactionIntent = async (recipient: string) => {
+export const createTokenMintIntent = async (recipient: string) => {
   try {
     const tx = await openfort.transactionIntents.create({
       chainId: arbitrumSepolia.id,
