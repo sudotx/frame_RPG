@@ -20,14 +20,12 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   const fid = frameRequest.untrustedData.fid;
 
-  let embeddedWalletAddress: string | undefined;
-
   try {
     // Query Farcaster Registry contract to get owner address from fid
     const ownerAddress = await getOwnerAddressFromFid(fid);
 
     // Generate an embedded wallet associated with the fid
-    embeddedWalletAddress = await createOrFindSmartWalletForFid(
+    const embeddedWalletAddress = await createOrFindSmartWalletForFid(
       fid,
       ownerAddress
     );
