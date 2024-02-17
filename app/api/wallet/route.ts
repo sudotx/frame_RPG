@@ -18,8 +18,7 @@ export async function POST(req: NextRequest): Promise<Response> {
     throw new Error("Could not deserialize request from frame");
   }
 
-  const { fid, isValid } = await parseFrameRequest(frameRequest);
-  if (!fid || !isValid) return new NextResponse(errorFrame);
+  const fid = frameRequest.untrustedData.fid;
 
   // Query Farcaster Registry contract to get owner address from fid
   const ownerAddress = await getOwnerAddressFromFid(fid);

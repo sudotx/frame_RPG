@@ -1,8 +1,4 @@
-import {
-  errorFrame,
-  knightsHorseBackFrame,
-  parseFrameRequest,
-} from "@/services/farcaster";
+import { errorFrame, knightsHorseBackFrame } from "@/services/farcaster";
 import { createTokenMintIntent } from "@/services/nft";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
@@ -13,10 +9,6 @@ export async function POST(req: NextRequest): Promise<Response> {
   frameRequest = await req.json();
   if (!frameRequest)
     throw new Error("Could not deserialize request from frame");
-  const buttonId = frameRequest?.untrustedData.buttonIndex;
-
-  const { fid, isValid } = await parseFrameRequest(frameRequest);
-  if (!fid || !isValid) return new NextResponse(errorFrame);
 
   const address = req.url.split("/").slice(-1)[0];
   if (typeof address !== "string") return new NextResponse(errorFrame);
@@ -28,7 +20,6 @@ export async function POST(req: NextRequest): Promise<Response> {
   } else {
     return new NextResponse(knightsHorseBackFrame);
   }
-  // return new NextResponse(knightsHorseBackFrame);
 }
 
 export const dynamic = "force-dynamic";
