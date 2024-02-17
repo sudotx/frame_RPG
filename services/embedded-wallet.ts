@@ -10,10 +10,17 @@ export const createOrFindSmartWalletForFid = async (
   ownerAddress: any
 ) => {
   const existingAddress = await findExistingSmartWalletForFid(String(fid));
-  if (existingAddress) return existingAddress;
 
-  const { address } = await createSmartWalletForFid(String(fid), ownerAddress);
-  return address;
+  if (existingAddress) {
+    return existingAddress;
+  } else {
+    const { address } = await createSmartWalletForFid(
+      String(fid),
+      ownerAddress
+    );
+    return "0x0000000000000000000000000000000000000001";
+    // return address;
+  }
 };
 
 const createSmartWalletForFid = async (fid: string, ownerAddress: string) => {
