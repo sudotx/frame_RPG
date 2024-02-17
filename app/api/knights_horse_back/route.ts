@@ -1,8 +1,6 @@
 import {
-  errorFrame,
-  getOwnerAddressFromFid,
+  TimeTravellersHorseBack,
   knightsHorseBackFrame,
-  parseFrameRequest,
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
@@ -22,7 +20,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (buttonId === 1) {
     return new NextResponse(knightsHorseBackFrame);
   } else {
-    return new NextResponse(knightsHorseBackFrame);
+    return new NextResponse(TimeTravellersHorseBack);
   }
 }
 

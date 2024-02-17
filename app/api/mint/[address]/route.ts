@@ -1,10 +1,4 @@
-import {
-  errorFrame,
-  knightHavingAHardTime,
-  knightsHorseBackFrame,
-  parseFrameRequest,
-} from "@/services/farcaster";
-import { createTokenMintIntent } from "@/services/nft";
+import { errorFrame, knightsHorseBackFrame } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 

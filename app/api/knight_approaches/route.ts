@@ -1,8 +1,6 @@
 import {
   TimeTravellersHorseBack,
   approachDragonLair,
-  errorFrame,
-  parseFrameRequest,
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";

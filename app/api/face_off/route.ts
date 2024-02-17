@@ -1,9 +1,4 @@
-import {
-  FaceOff,
-  KnightUsesMagic,
-  errorFrame,
-  parseFrameRequest,
-} from "@/services/farcaster";
+import { FaceOff, KnightUsesMagic } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 

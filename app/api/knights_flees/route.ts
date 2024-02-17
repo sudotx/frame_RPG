@@ -1,22 +1,6 @@
-import { createOrFindSmartWalletForFid } from "@/services/embedded-wallet";
-import {
-  HordeOfDragonsInvade,
-  KnightLoss,
-  KnightPlaysRps,
-  KnightUsesMagic,
-  dragonSpitsFireball,
-  dragonWins,
-  duelDragonFrame,
-  errorFrame,
-  getOwnerAddressFromFid,
-  knightGiveUp,
-  knightRunsAway,
-  knightsWin,
-  parseFrameRequest,
-} from "@/services/farcaster";
+import { knightGiveUp, knightRunsAway } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
-import { zeroAddress } from "viem";
 
 export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;

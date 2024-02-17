@@ -1,7 +1,7 @@
 import {
   errorFrame,
-  parseFrameRequest,
-  recruitFrame,
+  knightLooksForWizard,
+  knightsHorseBackFrame,
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
@@ -19,9 +19,9 @@ export async function POST(req: NextRequest): Promise<Response> {
   // const { fid, isValid } = await parseFrameRequest(frameRequest);
   // if (!fid || !isValid) return new NextResponse(errorFrame);
   if (buttonIndex === 1) {
-    return new NextResponse(recruitFrame);
+    return new NextResponse(knightsHorseBackFrame);
   } else {
-    return new NextResponse(errorFrame);
+    return new NextResponse(knightLooksForWizard);
   }
 }
 

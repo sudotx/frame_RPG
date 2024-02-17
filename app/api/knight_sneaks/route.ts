@@ -1,9 +1,4 @@
-import {
-  ShowWin,
-  errorFrame,
-  knightSneakAttack,
-  parseFrameRequest,
-} from "@/services/farcaster";
+import { ShowWin, knightSneakAttack } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 

@@ -1,9 +1,4 @@
-import {
-  dragonWins,
-  errorFrame,
-  knightRunsAway,
-  parseFrameRequest,
-} from "@/services/farcaster";
+import { dragonWins, knightRunsAway } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 

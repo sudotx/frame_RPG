@@ -1,9 +1,4 @@
-import {
-  errorFrame,
-  knightSneakAttack,
-  knightsGuild,
-  parseFrameRequest,
-} from "@/services/farcaster";
+import { knightSneakAttack, knightsGuild } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
