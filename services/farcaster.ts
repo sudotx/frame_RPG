@@ -1,6 +1,5 @@
 import { FrameRequest } from "@coinbase/onchainkit";
 import { Message, getSSLHubRpcClient } from "@farcaster/hub-nodejs";
-import { on } from "events";
 import { getAddressForFid } from "frames.js";
 import { zeroAddress } from "viem";
 
@@ -131,8 +130,8 @@ export const oneButtonFrame = (
       </head>
   </html>`;
 };
+// use to structure
 
-// mint WPN
 export const mintFrame = (address: string) => {
   return oneButtonFrame(
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,

@@ -1,5 +1,5 @@
-import { arbitrumSepolia } from "viem/chains";
 import Openfort from "@openfort/openfort-node";
+import { arbitrumSepolia } from "viem/chains";
 
 const CONTRACT_ID = process.env.GAME_CONTRACT_ID!;
 const POLICY_ID = process.env.GAME_POLICY_ID!;
