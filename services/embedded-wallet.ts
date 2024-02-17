@@ -7,7 +7,7 @@ const openfort = new Openfort(OPENFORT_APP_SECRET + "");
 
 export const createOrFindSmartWalletForFid = async (
   fid: number,
-  ownerAddress: string
+  ownerAddress: any
 ) => {
   const existingAddress = await findExistingSmartWalletForFid(String(fid));
   if (existingAddress) return existingAddress;

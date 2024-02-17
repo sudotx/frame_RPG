@@ -20,18 +20,21 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   const fid = frameRequest.untrustedData.fid;
 
-  // Query Farcaster Registry contract to get owner address from fid
-  const ownerAddress = await getOwnerAddressFromFid(fid);
-  if (!ownerAddress) return new NextResponse(errorFrame);
+  let embeddedWalletAddress: string | undefined;
 
-  // Generate an embedded wallet associated with the fid
-  const embeddedWalletAddress = await createOrFindSmartWalletForFid(
-    fid,
-    ownerAddress
-  );
-  if (!embeddedWalletAddress) return new NextResponse(errorFrame);
+  try {
+    // Query Farcaster Registry contract to get owner address from fid
+    const ownerAddress = await getOwnerAddressFromFid(fid);
 
-  return new NextResponse(mintFrame(embeddedWalletAddress as `0x${string}`));
+    // Generate an embedded wallet associated with the fid
+    embeddedWalletAddress = await createOrFindSmartWalletForFid(
+      fid,
+      ownerAddress
+    );
+    return new NextResponse(mintFrame(embeddedWalletAddress as `0x${string}`));
+  } catch (error) {
+    return new NextResponse(errorFrame);
+  }
 }
 
 export const dynamic = "force-dynamic";
