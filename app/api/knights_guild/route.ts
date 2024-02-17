@@ -1,4 +1,9 @@
-import { knightSneakAttack, knightsGuild } from "@/services/farcaster";
+import {
+  errorFrame,
+  knightSneakAttack,
+  knightsGuild,
+  parseFrameRequest,
+} from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -12,8 +17,8 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   const buttonId = frameRequest.untrustedData.buttonIndex;
 
-  // const { fid, isValid } = await parseFrameRequest(frameRequest);
-  // if (!fid || !isValid) return new NextResponse(errorFrame);
+  const { fid, isValid } = await parseFrameRequest(frameRequest);
+  if (!fid || !isValid) return new NextResponse(errorFrame);
 
   if (buttonId === 1) {
     return new NextResponse(knightsGuild);
