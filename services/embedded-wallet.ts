@@ -1,26 +1,24 @@
 import Openfort from "@openfort/openfort-node";
 import { arbitrumSepolia } from "viem/chains";
 
-const OPENFORT_APP_SECRET = process.env.OPENFORT_APP_SECRET;
+const OPENFORT_APP_SECRET = process.env.OPENFORT_APP_SECRET + "";
 
-const openfort = new Openfort(OPENFORT_APP_SECRET + "");
+const openfort = new Openfort(OPENFORT_APP_SECRET);
 
 export const createOrFindSmartWalletForFid = async (
   fid: number,
   ownerAddress: any
 ) => {
-  const existingAddress = await findExistingSmartWalletForFid(String(21));
-  // const existingAddress = await findExistingSmartWalletForFid(String(fid));
+  const existingAddress = await findExistingSmartWalletForFid(String(fid));
 
   if (existingAddress) {
     return existingAddress;
   } else {
     const { address } = await createSmartWalletForFid(
-      String(21),
-      // String(fid),
+      String(fid),
       ownerAddress
     );
-    // return "0x70e6F3c4C7037362E0890cfb709c5be6b142d77a";
+    return "0x70e6F3c4C7037362E0890cfb709c5be6b142d77a";
     return address;
   }
 };
