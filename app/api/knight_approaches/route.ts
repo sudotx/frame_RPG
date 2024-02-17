@@ -1,4 +1,5 @@
 import {
+  TimeTravellersHorseBack,
   approachDragonLair,
   errorFrame,
   parseFrameRequest,
@@ -21,7 +22,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (buttonId === 1) {
     return new NextResponse(approachDragonLair);
   } else {
-    return new NextResponse(errorFrame);
+    return new NextResponse(TimeTravellersHorseBack);
   }
 }
 

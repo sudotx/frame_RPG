@@ -29,13 +29,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   // } else {
   //   return new NextResponse(knightsHorseBackFrame);
   // }
-  if (buttonId === 1) {
-    // user selects sword
-    return new NextResponse(knightsHorseBackFrame);
-  } else {
-    // user selects spear
-    return new NextResponse(knightHavingAHardTime);
-  }
+  return new NextResponse(knightsHorseBackFrame);
 }
 
 export const dynamic = "force-dynamic";

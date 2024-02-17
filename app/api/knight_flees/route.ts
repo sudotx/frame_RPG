@@ -1,5 +1,6 @@
 import {
   errorFrame,
+  knightCastsOutOfControlSpells,
   knightRunsAway,
   parseFrameRequest,
 } from "@/services/farcaster";
@@ -24,7 +25,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (buttonId === 1) {
     return new NextResponse(knightRunsAway);
   } else {
-    return new NextResponse(errorFrame);
+    return new NextResponse(knightCastsOutOfControlSpells);
   }
 }
 

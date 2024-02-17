@@ -8,7 +8,7 @@ import {
   duelDragonFrame,
   errorFrame,
   getOwnerAddressFromFid,
-  knightFindsForWizard,
+  knightCastsOutOfControlSpells,
   knightsWin,
   parseFrameRequest,
 } from "@/services/farcaster";
@@ -44,9 +44,9 @@ export async function POST(req: NextRequest): Promise<Response> {
   // if (!embeddedWalletAddress) return new NextResponse(errorFrame);
 
   if (buttonId === 1) {
-    return new NextResponse(HordeOfDragonsInvade);
+    return new NextResponse(KnightUsesMagic);
   } else {
-    return new NextResponse(knightFindsForWizard);
+    return new NextResponse(knightCastsOutOfControlSpells);
   }
 }
 

@@ -1,4 +1,5 @@
 import {
+  ShowWin,
   errorFrame,
   knightSneakAttack,
   parseFrameRequest,
@@ -21,7 +22,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (buttonId === 1) {
     return new NextResponse(knightSneakAttack);
   } else {
-    return new NextResponse(errorFrame);
+    return new NextResponse(ShowWin);
   }
 }
 

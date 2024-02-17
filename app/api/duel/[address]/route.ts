@@ -1,5 +1,6 @@
 import { createOrFindSmartWalletForFid } from "@/services/embedded-wallet";
 import {
+  KnightUsesMagic,
   dragonSpitsFireball,
   duelDragonFrame,
   errorFrame,
@@ -40,7 +41,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (buttonId === 1) {
     return new NextResponse(dragonSpitsFireball);
   } else {
-    return new NextResponse(duelDragonFrame(zeroAddress));
+    return new NextResponse(KnightUsesMagic);
   }
 }
 

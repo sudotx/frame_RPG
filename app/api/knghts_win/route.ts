@@ -1,5 +1,7 @@
 import {
+  blacksmithHandsOverSpearToDude,
   errorFrame,
+  knightHavingAHardTime,
   knightsWin,
   parseFrameRequest,
 } from "@/services/farcaster";
@@ -20,9 +22,9 @@ export async function POST(req: NextRequest): Promise<Response> {
   // if (!fid || !isValid) return new NextResponse(errorFrame);
 
   if (buttonId === 1) {
-    return new NextResponse(knightsWin);
+    return new NextResponse(blacksmithHandsOverSpearToDude);
   } else {
-    return new NextResponse(errorFrame);
+    return new NextResponse(knightHavingAHardTime);
   }
 }
 

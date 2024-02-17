@@ -1,5 +1,6 @@
 import {
   errorFrame,
+  knightSneakAttack,
   knightsGuild,
   parseFrameRequest,
 } from "@/services/farcaster";
@@ -22,7 +23,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (buttonId === 1) {
     return new NextResponse(knightsGuild);
   } else {
-    return new NextResponse(errorFrame);
+    return new NextResponse(knightSneakAttack);
   }
 }
 

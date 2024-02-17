@@ -1,15 +1,13 @@
 import { FrameRequest } from "@coinbase/onchainkit";
 import { Message, getSSLHubRpcClient } from "@farcaster/hub-nodejs";
-import { createPublicClient, getContract, http } from "viem";
-import { optimism } from "viem/chains";
+import { on } from "events";
+import { getAddressForFid } from "frames.js";
+import { zeroAddress } from "viem";
 
 export const FRAME_BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || "https://untitled-unmastered.vercel.app";
-const ID_REGISTRY_CONTRACT_ADDRESS: `0x${string}` =
-  "0x00000000fc6c5f01fc30151999387bb99a9f489b"; // Optimism Mainnet
-const ZERO_ADDRESS: `0x${string}` =
-  "0x0000000000000000000000000000000000000000";
-const HUB_URL = "nemes.farcaster.xyz:2283";
+const HUB_URL = "hub.pinata.cloud";
+// const HUB_URL = "nemes.farcaster.xyz:2283";
 
 export enum FrameImageUrls {
   MINT_PAGE_WITH_BLACKSMITH = "https://untitled-unmastered.vercel.app/blacksmith.jpg",
@@ -65,31 +63,98 @@ export const createFrame = (
         </html>`;
 };
 
+export const fourButtonFrame = (
+  imageUrl: string,
+  apiPath: string,
+  buttonText: string,
+  buttonText2: string,
+  buttonText3: string,
+  buttonText4: string
+) => {
+  return `
+  <!DOCTYPE html>
+  <html>
+      <head>
+      <meta name="fc:frame" content="vNext">
+      <meta name="fc:frame:image" content="${imageUrl}">
+      <meta name="fc:frame:post_url" content="${FRAME_BASE_URL}/${apiPath}">
+      <meta name="fc:frame:button:1" content="${buttonText}">
+      <meta name="fc:frame:button:1:action">
+      <meta name="fc:frame:button:2" content="${buttonText2}">
+      <meta name="fc:frame:button:2:action">
+      <meta name="fc:frame:button:3" content="${buttonText3}">
+      <meta name="fc:frame:button:3:action">
+      <meta name="fc:frame:button:4" content="${buttonText4}">
+      <meta name="fc:frame:button:4:action">
+      </head>
+  </html>`;
+};
+
+export const threeButtonFrame = (
+  imageUrl: string,
+  apiPath: string,
+  buttonText: string,
+  buttonText2: string,
+  buttonText3: string
+) => {
+  return `
+  <!DOCTYPE html>
+  <html>
+      <head>
+      <meta name="fc:frame" content="vNext">
+      <meta name="fc:frame:image" content="${imageUrl}">
+      <meta name="fc:frame:post_url" content="${FRAME_BASE_URL}/${apiPath}">
+      <meta name="fc:frame:button:1" content="${buttonText}">
+      <meta name="fc:frame:button:1:action">
+      <meta name="fc:frame:button:2" content="${buttonText2}">
+      <meta name="fc:frame:button:2:action">
+      <meta name="fc:frame:button:3" content="${buttonText3}">
+      <meta name="fc:frame:button:3:action">
+      </head>
+  </html>`;
+};
+
+export const oneButtonFrame = (
+  imageUrl: string,
+  apiPath: string,
+  buttonText: string
+) => {
+  return `
+  <!DOCTYPE html>
+  <html>
+      <head>
+      <meta name="fc:frame" content="vNext">
+      <meta name="fc:frame:image" content="${imageUrl}">
+      <meta name="fc:frame:post_url" content="${FRAME_BASE_URL}/${apiPath}">
+      <meta name="fc:frame:button:1" content="${buttonText}">
+      <meta name="fc:frame:button:1:action">
+      </head>
+  </html>`;
+};
+
 // mint WPN
 export const mintFrame = (address: string) => {
-  return createFrame(
+  return oneButtonFrame(
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
-    "Mint Yourself A Sword",
     `api/mint/${address}`,
-    "How About A Spear Instead?"
+    "Mint Yourself A Weapon"
   );
 };
 
 export const RecruitFrame = (address: string) => {
-  return createFrame(
+  return oneButtonFrame(
     FrameImageUrls.RECRUIT,
-    "Join The Fight",
     `api/mint/${address}`,
-    "To Fight For The Land?"
+    "Join The Fight??"
   );
 };
 
 export const duelDragonFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.FACE_OFF,
-    "Prepare To Fight The Dragon",
+    "Prepare To Fight The Dragon Head on",
     `api/duel/${address}`,
-    "Or Get Burnt To A Crisp"
+    "Or Cast A Spell"
   );
 };
 
@@ -97,7 +162,7 @@ export const dragonSpitsFireball = createFrame(
   FrameImageUrls.DRAGON_SPITS_FIRBALL_AT_KNIGHT,
   "Run Away",
   `api/dragon_wins`,
-  "Try Stabbing The Beast"
+  "Try Another Attack"
 );
 
 export const dragonWins = createFrame(
@@ -222,8 +287,8 @@ export const knightSneakAttack = createFrame(
 export const knightRunsAway = createFrame(
   FrameImageUrls.FLEEING_KNIGHT,
   "Go back home",
-  `api/done`,
-  "Exile yourself"
+  `api/knight_having_a_hard_time`,
+  "???"
 );
 
 export const errorFrame = createFrame(
@@ -251,7 +316,7 @@ export const KnightUsesMagic = createFrame(
   FrameImageUrls.KNIGHT_USES_MAGIC,
   "you cast volley of lead on the dragon",
   "api/knight_uses_magic",
-  "???"
+  "Play a round of RPS"
 );
 
 export const KnightPlaysRps = createFrame(
@@ -314,29 +379,13 @@ export const parseFrameRequest = async (request: FrameRequest) => {
 // get owner address
 export const getOwnerAddressFromFid = async (fid: number) => {
   let ownerAddress: `0x${string}` | undefined;
-  try {
-    const publicClient = createPublicClient({
-      chain: optimism,
-      transport: http(),
-    });
-    const idRegistry = getContract({
-      address: ID_REGISTRY_CONTRACT_ADDRESS,
-      abi: [
-        {
-          inputs: [{ internalType: "uint256", name: "fid", type: "uint256" }],
-          name: "custodyOf",
-          outputs: [
-            { internalType: "address", name: "owner", type: "address" },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
-      client: publicClient,
-    });
-    ownerAddress = await idRegistry.read.custodyOf([BigInt(fid)]);
-  } catch (error) {
-    console.error(error);
-  }
-  return ownerAddress !== ZERO_ADDRESS ? ownerAddress : undefined;
+
+  ownerAddress = await getAddressForFid({
+    fid: fid,
+    options: {
+      fallbackToCustodyAddress: true,
+    },
+  });
+
+  return ownerAddress !== zeroAddress ? ownerAddress : undefined;
 };
