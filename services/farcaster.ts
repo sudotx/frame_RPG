@@ -268,7 +268,7 @@ export const enemyCountryInvades = createFrame(
 );
 
 export const HordeOfDragonsInvade = oneButtonFrame(
-  FrameImageUrls.RECRUIT,
+  FrameImageUrls.KNIGHTS_BAND_TOGETHER,
   `api/war`,
   "???"
 );
