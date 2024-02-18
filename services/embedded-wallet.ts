@@ -18,7 +18,7 @@ export const createOrFindSmartWalletForFid = async (
       String(fid),
       ownerAddress
     );
-    return "0x70e6F3c4C7037362E0890cfb709c5be6b142d77a";
+    return "0x7b5b083107f3B4f041CCfaB927214324B4bcbA49";
     return address;
   }
 };
