@@ -135,7 +135,7 @@ export const mintFrame = (address: string) => {
   return oneButtonFrame(
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
     `api/mint/${address}`,
-    "Grab Yourself A Weapon"
+    "Grab A Weapon"
   );
 };
 
@@ -172,14 +172,14 @@ export const dragonWins = createFrame(
 
 export const FaceOff = createFrame(
   FrameImageUrls.FACE_OFF,
-  "Try Fighting The Dragon",
+  "Try Fighting",
   `api/spit_fireball`,
-  "Try Using Your Words"
+  "Try Using Words"
 );
 
 export const knightsWin = createFrame(
   FrameImageUrls.KNIGHT_WIN,
-  "Congrats On Getting This Far, You Deserve This W",
+  "Congrats, Anon",
   `api/done`,
   "Go Again?"
 );
@@ -187,26 +187,26 @@ export const knightsWin = createFrame(
 export const knightsGuild = oneButtonFrame(
   FrameImageUrls.KNIGHTS_GUILD,
   `api/knights_guild`,
-  "Join The Guild?"
+  "Join?"
 );
 
 export const knightsHorseBackFrame = createFrame(
   FrameImageUrls.KNIGHT_HORSE_BACK,
-  "On Your Way To Fight A Dragon",
+  "On Your Way",
   `api/knight_approaches`,
-  "Try Looking For Mordor, The Great"
+  "Look For The Wizard"
 );
 
 export const approachDragonLair = createFrame(
   FrameImageUrls.APPROACHING,
   "Almost There",
   `api/face_off`,
-  "Cast One Of The Spells You Just Learnt"
+  "Cast One A Spell"
 );
 
 export const knightCastsOutOfControlSpells = createFrame(
   FrameImageUrls.KNIGHT_OUT_OF_CONTROL,
-  "You Cast An Out Of Control Spell",
+  "Cast Out Of Control Spell",
   `api/knights_ooc`,
   "Cast Another"
 );
@@ -220,9 +220,9 @@ export const phoenixDestroysWorld = createFrame(
 
 export const wizardTeachesKnightMagic = createFrame(
   FrameImageUrls.WIZARD_TEACHES_KNIGHT,
-  "Wizard Teaches The Knight To Better Use Words",
+  "Wizard Teaches The Knight",
   `api/done`,
-  "Think You're Ready Now"
+  "Think You're Ready"
 );
 
 export const knightLooksForWizard = createFrame(
@@ -263,7 +263,7 @@ export const enemyCountryInvades = createFrame(
   FrameImageUrls.KNIGHTS_BAND_TOGETHER,
   "Join the fight",
   `api/war`,
-  "Join the Opposition"
+  "Join the Opps"
 );
 
 export const HordeOfDragonsInvade = oneButtonFrame(
@@ -290,13 +290,13 @@ export const errorFrame = createFrame(
   FrameImageUrls.FRIENDLY_WITH_DRAGON,
   "Try again?",
   "api/done",
-  "Stay Right Here?"
+  "Stay Here?"
 );
 
 export const ShowWin = oneButtonFrame(
   FrameImageUrls.KNIGHT_WIN,
   "api/knghts_win",
-  "Congratulations anon"
+  "Congrats anon"
 );
 
 export const ShowLose = createFrame(
@@ -308,7 +308,7 @@ export const ShowLose = createFrame(
 
 export const KnightUsesMagic = createFrame(
   FrameImageUrls.KNIGHT_USES_MAGIC,
-  "you cast volley of lead on the dragon",
+  "you cast some spell",
   "api/knight_uses_magic",
   "Play a round of RPS"
 );
