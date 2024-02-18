@@ -1,4 +1,7 @@
-import { KnightPlaysRps, phoenixDestroysWorld } from "@/services/farcaster";
+import {
+  knightCastsOutOfControlSpells,
+  knightsGuild,
+} from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -13,9 +16,9 @@ export async function POST(req: NextRequest): Promise<Response> {
   const buttonId = frameRequest.untrustedData.buttonIndex;
 
   if (buttonId === 1) {
-    return new NextResponse(phoenixDestroysWorld);
+    return new NextResponse(knightCastsOutOfControlSpells);
   } else {
-    return new NextResponse(KnightPlaysRps);
+    return new NextResponse(knightsGuild);
   }
 }
 

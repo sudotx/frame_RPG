@@ -1,6 +1,7 @@
 import {
   TimeTravellersHorseBack,
   approachDragonLair,
+  knightFindsForWizard,
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
@@ -17,7 +18,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (buttonId === 1) {
     return new NextResponse(approachDragonLair);
   } else {
-    return new NextResponse(TimeTravellersHorseBack);
+    return new NextResponse(knightFindsForWizard);
   }
 }
 

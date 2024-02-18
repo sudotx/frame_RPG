@@ -1,4 +1,7 @@
-import { HordeOfDragonsInvade, dragonWins } from "@/services/farcaster";
+import {
+  HordeOfDragonsInvade,
+  knightFindsForWizard,
+} from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -15,7 +18,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (buttonId === 1) {
     return new NextResponse(HordeOfDragonsInvade);
   } else {
-    return new NextResponse(dragonWins);
+    return new NextResponse(knightFindsForWizard);
   }
 }
 
