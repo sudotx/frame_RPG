@@ -17,8 +17,7 @@ export const createTransactionIntent = async (recipient: string) => {
       interactions: [
         {
           contract: CONTRACT_ID,
-          functionName: "mint",
-          functionArgs: [recipient],
+          functionName: "fight",
         },
       ],
     });

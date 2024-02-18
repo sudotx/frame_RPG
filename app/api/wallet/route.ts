@@ -28,6 +28,8 @@ export async function POST(req: NextRequest): Promise<Response> {
       fid,
       ownerAddress
     );
+    // if (!embeddedWalletAddress) return new NextResponse(errorFrame);
+
     return new NextResponse(mintFrame(embeddedWalletAddress as `0x${string}`));
   } catch (error) {
     return new NextResponse(errorFrame);

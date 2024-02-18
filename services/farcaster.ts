@@ -1,7 +1,6 @@
 import { FrameRequest } from "@coinbase/onchainkit";
 import { Message, getSSLHubRpcClient } from "@farcaster/hub-nodejs";
 import { getAddressForFid } from "frames.js";
-import { zeroAddress } from "viem";
 
 export const FRAME_BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || "https://untitled-unmastered.vercel.app";
@@ -136,7 +135,7 @@ export const mintFrame = (address: string) => {
   return oneButtonFrame(
     FrameImageUrls.MINT_PAGE_WITH_BLACKSMITH,
     `api/mint/${address}`,
-    "Mint Yourself A Weapon"
+    "Grab Yourself A Weapon"
   );
 };
 
@@ -144,29 +143,29 @@ export const RecruitFrame = (address: string) => {
   return oneButtonFrame(
     FrameImageUrls.RECRUIT,
     `api/mint/${address}`,
-    "Join The Fight??"
+    "Join In??"
   );
 };
 
 export const duelDragonFrame = (address: string) => {
   return createFrame(
     FrameImageUrls.FACE_OFF,
-    "Prepare To Fight The Dragon Head on",
+    "Prepare To Fight",
     `api/duel/${address}`,
-    "Or Cast A Spell"
+    "Or Maybe A Spell"
   );
 };
 
 export const dragonSpitsFireball = createFrame(
   FrameImageUrls.DRAGON_SPITS_FIRBALL_AT_KNIGHT,
-  "Run Away",
+  "RunAway",
   `api/dragon_wins`,
-  "Try Another Attack"
+  "Suprise Attack"
 );
 
 export const dragonWins = createFrame(
   FrameImageUrls.DRAGON_WINS,
-  "I Guess That Did Not Work",
+  "Guess That Didnt Work",
   `api/done`,
   "Try Again?"
 );
@@ -207,9 +206,9 @@ export const approachDragonLair = createFrame(
 
 export const knightCastsOutOfControlSpells = createFrame(
   FrameImageUrls.KNIGHT_OUT_OF_CONTROL,
-  "Oh, Well You Unleashed The Demon Phoenix Unto This World",
+  "You Cast An Out Of Control Spell",
   `api/knights_ooc`,
-  "Cast Another One Of The Spells You Just Learnt"
+  "Cast Another"
 );
 
 export const phoenixDestroysWorld = createFrame(
@@ -382,5 +381,6 @@ export const getOwnerAddressFromFid = async (fid: number) => {
     },
   });
 
-  return ownerAddress !== zeroAddress ? ownerAddress : undefined;
+  return ownerAddress;
+  // return ownerAddress !== zeroAddress ? ownerAddress : undefined;
 };

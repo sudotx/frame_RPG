@@ -18,7 +18,6 @@ export const createTokenMintIntent = async (recipient: string) => {
         {
           contract: CONTRACT_ID,
           functionName: "mint",
-          functionArgs: [recipient],
         },
       ],
     });

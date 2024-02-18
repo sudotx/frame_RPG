@@ -18,12 +18,16 @@ export const createOrFindSmartWalletForFid = async (
       String(fid),
       ownerAddress
     );
+    ///@audit-issue
     return "0x7b5b083107f3B4f041CCfaB927214324B4bcbA49";
     return address;
   }
 };
 
-const createSmartWalletForFid = async (fid: string, ownerAddress: string) => {
+export const createSmartWalletForFid = async (
+  fid: string,
+  ownerAddress: string
+) => {
   let smartWalletAddress: string | undefined;
 
   try {

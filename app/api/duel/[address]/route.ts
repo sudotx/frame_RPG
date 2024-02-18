@@ -29,10 +29,12 @@ export async function POST(req: NextRequest): Promise<Response> {
     fid,
     ownerAddress
   );
-  if (!embeddedWalletAddress) return new NextResponse(errorFrame);
+  // if (!embeddedWalletAddress) return new NextResponse(errorFrame);
 
   if (buttonId === 1) {
-    return new NextResponse(duelDragonFrame(embeddedWalletAddress));
+    return new NextResponse(
+      duelDragonFrame(embeddedWalletAddress as `0x${string}`)
+    );
   } else {
     return new NextResponse(dragonSpitsFireball);
   }
