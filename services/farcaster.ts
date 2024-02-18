@@ -262,14 +262,14 @@ export const knightHavingAHardTime = createFrame(
 );
 
 export const enemyCountryInvades = createFrame(
-  FrameImageUrls.APPROACHING,
+  FrameImageUrls.KNIGHTS_BAND_TOGETHER,
   "Join the fight",
   `api/war`,
   "Join the Opposition"
 );
 
 export const HordeOfDragonsInvade = createFrame(
-  FrameImageUrls.KNIGHTS_BAND_TOGETHER,
+  FrameImageUrls.RECRUIT,
   "???",
   `api/war`,
   "???"
@@ -303,7 +303,7 @@ export const ShowWin = oneButtonFrame(
 );
 
 export const ShowLose = createFrame(
-  FrameImageUrls.DRAGON_WINS,
+  FrameImageUrls.DRAGON_SOARING_FREE,
   "Try again?",
   "api/done",
   "???"
@@ -331,7 +331,7 @@ export const knightGiveUp = createFrame(
 );
 
 export const oneOne = createFrame(
-  FrameImageUrls.KNIGHT_LOSS,
+  FrameImageUrls.DRAGON_SOARING_FREE,
   "???",
   "api/knights_flees",
   "???"
