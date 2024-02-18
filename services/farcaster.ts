@@ -233,11 +233,10 @@ export const knightLooksForWizard = createFrame(
   "???"
 );
 
-export const knightFindsForWizard = createFrame(
+export const knightFindsForWizard = oneButtonFrame(
   FrameImageUrls.KNIGHT_FINDS_WIZARD,
-  "Learn Magic",
   `api/knight_uses_magic`,
-  "Just Hangout"
+  "Learn Magic"
 );
 
 export const TimeTravellersHorseBack = createFrame(
@@ -268,9 +267,8 @@ export const enemyCountryInvades = createFrame(
   "Join the Opposition"
 );
 
-export const HordeOfDragonsInvade = createFrame(
+export const HordeOfDragonsInvade = oneButtonFrame(
   FrameImageUrls.RECRUIT,
-  "???",
   `api/war`,
   "???"
 );
