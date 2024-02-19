@@ -283,7 +283,7 @@ export const knightSneakAttack = createFrame(
 export const knightRunsAway = createFrame(
   FrameImageUrls.FLEEING_KNIGHT,
   "Go back home",
-  `api/knight_having_hard_time`,
+  `api/knight_having`,
   "???"
 );
 
