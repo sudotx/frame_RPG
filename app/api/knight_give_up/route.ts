@@ -1,9 +1,4 @@
-import {
-  HordeOfDragonsInvade,
-  ShowLose,
-  errorFrame,
-  knightFindsForWizard,
-} from "@/services/farcaster";
+import { ShowLose, errorFrame } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
