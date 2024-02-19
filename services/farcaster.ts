@@ -256,7 +256,7 @@ export const blacksmithHandsOverSpearToDude = createFrame(
 export const knightHavingAHardTime = createFrame(
   FrameImageUrls.KNIGHT_SCARED,
   "Give up?",
-  `api/knight_having_hard_time`,
+  `api/knight_having`,
   "Keep Pushing"
 );
 
