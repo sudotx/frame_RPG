@@ -1,4 +1,8 @@
-import { knightSneakAttack, knightsGuild } from "@/services/farcaster";
+import {
+  knightSneakAttack,
+  knightsGuild,
+  knightsHorseBackFrame,
+} from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -13,7 +17,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   const buttonId = frameRequest.untrustedData.buttonIndex;
 
   if (buttonId === 1) {
-    return new NextResponse(knightsGuild);
+    return new NextResponse(knightsHorseBackFrame);
   } else {
     return new NextResponse(knightSneakAttack);
   }

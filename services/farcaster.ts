@@ -142,7 +142,7 @@ export const mintFrame = (address: string) => {
 export const RecruitFrame = (address: string) => {
   return oneButtonFrame(
     FrameImageUrls.RECRUIT,
-    `api/mint/${address}`,
+    `api/knights_guild`,
     "Join In??"
   );
 };
