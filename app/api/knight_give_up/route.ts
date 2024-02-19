@@ -1,5 +1,7 @@
 import {
   HordeOfDragonsInvade,
+  ShowLose,
+  errorFrame,
   knightFindsForWizard,
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
@@ -16,9 +18,9 @@ export async function POST(req: NextRequest): Promise<Response> {
   const buttonId = frameRequest.untrustedData.buttonIndex;
 
   if (buttonId === 1) {
-    return new NextResponse(HordeOfDragonsInvade);
+    return new NextResponse(errorFrame);
   } else {
-    return new NextResponse(knightFindsForWizard);
+    return new NextResponse(ShowLose);
   }
 }
 
