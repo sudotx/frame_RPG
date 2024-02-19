@@ -184,10 +184,11 @@ export const knightsWin = createFrame(
   "Go Again?"
 );
 
-export const knightsGuild = oneButtonFrame(
+export const knightsGuild = createFrame(
   FrameImageUrls.KNIGHTS_GUILD,
+  "Join?",
   `api/knights_guild`,
-  "Join?"
+  "Dont"
 );
 
 export const knightsHorseBackFrame = createFrame(
@@ -206,9 +207,9 @@ export const approachDragonLair = createFrame(
 
 export const knightCastsOutOfControlSpells = createFrame(
   FrameImageUrls.KNIGHT_OUT_OF_CONTROL,
-  "Cast Out Of Control Spell",
-  `api/knights_ooc`,
-  "Cast Another"
+  "???",
+  `api/war`,
+  "???"
 );
 
 export const phoenixDestroysWorld = createFrame(
@@ -221,7 +222,7 @@ export const phoenixDestroysWorld = createFrame(
 export const wizardTeachesKnightMagic = createFrame(
   FrameImageUrls.WIZARD_TEACHES_KNIGHT,
   "Wizard Teaches The Knight",
-  `api/done`,
+  `api/knights_guild`,
   "Think You're Ready?"
 );
 

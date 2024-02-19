@@ -1,6 +1,7 @@
 import {
   KnightUsesMagic,
   knightCastsOutOfControlSpells,
+  phoenixDestroysWorld,
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
@@ -16,9 +17,9 @@ export async function POST(req: NextRequest): Promise<Response> {
   const buttonId = frameRequest.untrustedData.buttonIndex;
 
   if (buttonId === 1) {
-    return new NextResponse(KnightUsesMagic);
-  } else {
     return new NextResponse(knightCastsOutOfControlSpells);
+  } else {
+    return new NextResponse(phoenixDestroysWorld);
   }
 }
 
