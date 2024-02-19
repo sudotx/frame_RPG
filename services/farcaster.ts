@@ -276,7 +276,7 @@ export const HordeOfDragonsInvade = oneButtonFrame(
 export const knightSneakAttack = createFrame(
   FrameImageUrls.KNIGHT_SNEAK_ATTACK,
   "Almost there",
-  `api/knights_flees`,
+  `api/knight_flees`,
   "you ready?"
 );
 
