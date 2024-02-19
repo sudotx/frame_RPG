@@ -222,7 +222,7 @@ export const wizardTeachesKnightMagic = createFrame(
   FrameImageUrls.WIZARD_TEACHES_KNIGHT,
   "Wizard Teaches The Knight",
   `api/done`,
-  "Think You're Ready"
+  "Think You're Ready?"
 );
 
 export const knightLooksForWizard = createFrame(

@@ -1,6 +1,8 @@
 import {
+  errorFrame,
   knightCastsOutOfControlSpells,
   knightsGuild,
+  parseFrameRequest,
 } from "@/services/farcaster";
 import { FrameRequest } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
@@ -9,6 +11,11 @@ export async function POST(req: NextRequest): Promise<Response> {
   let frameRequest: FrameRequest | undefined;
 
   frameRequest = await req.json();
+  const a = await parseFrameRequest(frameRequest!);
+  if (!a) {
+    return new NextResponse(errorFrame);
+  }
+
   if (!frameRequest) {
     throw new Error("could not deserialize request from frame");
   }
